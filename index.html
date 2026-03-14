@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Нейросети мира — полный гид</title>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;600;800&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --bg2: #12121a;
+    --accent: #6c63ff;
+    --text: #e8e8f0;
+    --text2: #9090b0;
+    --border: rgba(108,99,255,0.2);
+    --card: #16162a;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background: var(--bg); color: var(--text); font-family: 'Golos Text', sans-serif; min-height: 100vh; overflow-x: hidden; }
+  body::before {
+    content: ''; position: fixed; inset: 0;
+    background-image: linear-gradient(rgba(108,99,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(108,99,255,0.04) 1px, transparent 1px);
+    background-size: 40px 40px; pointer-events: none; z-index: 0;
+  }
+  header { position: relative; z-index: 10; padding: 80px 40px 60px; text-align: center; border-bottom: 1px solid var(--border); background: linear-gradient(180deg, rgba(108,99,255,0.08) 0%, transparent 100%); }
+  .header-tag { display: inline-block; background: rgba(108,99,255,0.15); border: 1px solid rgba(108,99,255,0.4); color: var(--accent); font-family: 'Unbounded', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.2em; padding: 6px 16px; border-radius: 100px; margin-bottom: 24px; text-transform: uppercase; }
+  h1 { font-family: 'Unbounded', sans-serif; font-size: clamp(28px, 5vw, 52px); font-weight: 800; line-height: 1.1; margin-bottom: 16px; background: linear-gradient(135deg, #fff 30%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .header-sub { color: var(--text2); font-size: 16px; max-width: 600px; margin: 0 auto 40px; line-height: 1.7; }
+  .stats { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
+  .stat { text-align: center; }
+  .stat-num { font-family: 'Unbounded', sans-serif; font-size: 32px; font-weight: 800; color: var(--accent); }
+  .stat-label { font-size: 12px; color: var(--text2); margin-top: 4px; }
+  .filters-wrap { position: relative; z-index: 10; padding: 32px 40px; display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; border-bottom: 1px solid var(--border); }
+  .filter-btn { background: var(--bg2); border: 1px solid var(--border); color: var(--text2); font-family: 'Golos Text', sans-serif; font-size: 13px; font-weight: 500; padding: 8px 18px; border-radius: 100px; cursor: pointer; transition: all 0.2s; }
+  .filter-btn:hover, .filter-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+  main { position: relative; z-index: 10; padding: 48px 40px; max-width: 1400px; margin: 0 auto; }
+  .section-title { font-family: 'Unbounded', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text2); margin-bottom: 24px; display: flex; align-items: center; gap: 12px; }
+  .section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 20px; margin-bottom: 56px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 26px; transition: all 0.3s; position: relative; overflow: hidden; }
+  .card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--card-accent, var(--accent)); opacity: 0; transition: opacity 0.3s; }
+  .card:hover { border-color: rgba(108,99,255,0.4); transform: translateY(-3px); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+  .card:hover::before { opacity: 1; }
+  .card-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 12px; gap: 12px; }
+  .card-left { display: flex; align-items: center; gap: 12px; flex: 1; }
+  .card-icon { width: 46px; height: 46px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; background: var(--card-accent-bg, rgba(108,99,255,0.15)); border: 1px solid var(--card-accent-border, rgba(108,99,255,0.3)); }
+  .card-name { font-family: 'Unbounded', sans-serif; font-size: 13px; font-weight: 600; color: #fff; line-height: 1.2; margin-bottom: 3px; }
+  .card-company { font-size: 11px; color: var(--text2); }
+  .card-badges { display: flex; gap: 6px; flex-wrap: wrap; }
+  .badge { font-size: 10px; font-weight: 600; letter-spacing: 0.05em; padding: 3px 10px; border-radius: 100px; text-transform: uppercase; }
+  .badge-free { background: rgba(67,233,123,0.15); color: #43e97b; border: 1px solid rgba(67,233,123,0.3); }
+  .badge-partial { background: rgba(247,151,30,0.15); color: #f7971e; border: 1px solid rgba(247,151,30,0.3); }
+  .badge-paid { background: rgba(255,101,132,0.15); color: #ff6584; border: 1px solid rgba(255,101,132,0.3); }
+  .card-desc { font-size: 13px; color: var(--text2); line-height: 1.65; margin-bottom: 12px; }
+  .card-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+  .tag { font-size: 11px; color: var(--text2); background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 3px 10px; border-radius: 6px; }
+  .levels-block { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 12px; padding: 14px; margin-bottom: 14px; }
+  .levels-title { font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text2); margin-bottom: 12px; }
+  .level-row { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .level-desc-row { font-size: 11px; color: var(--text2); margin: 2px 0 9px 88px; line-height: 1.4; }
+  .level-row:last-of-type { margin-bottom: 0; }
+  .level-badge { font-size: 10px; font-weight: 600; padding: 3px 8px; border-radius: 100px; min-width: 80px; text-align: center; }
+  .lb-b { background: rgba(67,233,123,0.15); color: #43e97b; border: 1px solid rgba(67,233,123,0.25); }
+  .lb-m { background: rgba(79,172,254,0.15); color: #4facfe; border: 1px solid rgba(79,172,254,0.25); }
+  .lb-p { background: rgba(255,101,132,0.15); color: #ff6584; border: 1px solid rgba(255,101,132,0.25); }
+  .level-bar-wrap { flex: 1; height: 4px; background: rgba(255,255,255,0.07); border-radius: 100px; overflow: hidden; }
+  .level-bar { height: 100%; border-radius: 100px; }
+  .bar-b { background: #43e97b; }
+  .bar-m { background: #4facfe; }
+  .bar-p { background: #ff6584; }
+  .level-time { font-size: 11px; font-weight: 600; color: var(--text); min-width: 88px; text-align: right; }
+  .card-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.06); }
+  .card-use { font-size: 11px; color: var(--text2); font-weight: 500; }
+  .card-link { font-size: 12px; color: var(--accent); text-decoration: none; font-weight: 600; transition: opacity 0.2s; }
+  .card-link:hover { opacity: 0.7; }
+  .c-purple { --card-accent:#6c63ff; --card-accent-bg:rgba(108,99,255,0.12); --card-accent-border:rgba(108,99,255,0.3); }
+  .c-blue { --card-accent:#4facfe; --card-accent-bg:rgba(79,172,254,0.12); --card-accent-border:rgba(79,172,254,0.3); }
+  .c-green { --card-accent:#43e97b; --card-accent-bg:rgba(67,233,123,0.12); --card-accent-border:rgba(67,233,123,0.3); }
+  .c-orange { --card-accent:#f7971e; --card-accent-bg:rgba(247,151,30,0.12); --card-accent-border:rgba(247,151,30,0.3); }
+  .c-pink { --card-accent:#ff6584; --card-accent-bg:rgba(255,101,132,0.12); --card-accent-border:rgba(255,101,132,0.3); }
+  .c-teal { --card-accent:#00d2ff; --card-accent-bg:rgba(0,210,255,0.12); --card-accent-border:rgba(0,210,255,0.3); }
+  .c-red { --card-accent:#ff4757; --card-accent-bg:rgba(255,71,87,0.12); --card-accent-border:rgba(255,71,87,0.3); }
+  footer { position: relative; z-index: 10; text-align: center; padding: 40px; border-top: 1px solid var(--border); color: var(--text2); font-size: 13px; }
+  footer span { color: var(--accent); }
+  /* ── МОБИЛЬНАЯ АДАПТАЦИЯ ── */
+  @media (max-width: 768px) {
+    header { padding: 48px 20px 40px; }
+    h1 { font-size: clamp(22px, 8vw, 36px); }
+    .header-sub { font-size: 14px; }
+    .stats { gap: 20px; }
+    .stat-num { font-size: 24px; }
+    .filters-wrap { padding: 16px 12px; gap: 8px; overflow-x: auto; flex-wrap: nowrap; justify-content: flex-start; -webkit-overflow-scrolling: touch; scrollbar-width: none; position: relative; }
+    .filters-wrap::-webkit-scrollbar { display: none; }
+    .filters-wrap::after { content: ''; position: absolute; right: 0; top: 0; bottom: 0; width: 40px; background: linear-gradient(to right, transparent, var(--bg)); pointer-events: none; }
+    .filter-btn { font-size: 12px; padding: 7px 14px; white-space: nowrap; flex-shrink: 0; }
+    main { padding: 24px 16px; }
+    .section-title { font-size: 10px; margin-bottom: 16px; }
+    .cards-grid { grid-template-columns: 1fr; gap: 16px; margin-bottom: 40px; }
+    .card { padding: 18px; border-radius: 14px; }
+    .card-name { font-size: 12px; }
+    .card-icon { width: 40px; height: 40px; font-size: 18px; }
+    .card-desc { font-size: 12px; }
+    .level-row { gap: 6px; }
+    .level-desc-row { margin-left: 0; font-size: 10px; }
+    .level-badge { font-size: 9px; padding: 2px 6px; min-width: 68px; }
+    .level-time { font-size: 10px; min-width: 72px; }
+    .price-row { flex-wrap: wrap; gap: 4px; }
+    .price-plan { min-width: auto; font-size: 10px; }
+    .price-amount { font-size: 11px; }
+    .price-desc { font-size: 9px; text-align: left; flex-basis: 100%; }
+    .card-tags { gap: 4px; }
+    .tag { font-size: 10px; padding: 2px 8px; }
+    .badge { font-size: 9px; }
+    .card-footer { flex-direction: column; align-items: flex-start; gap: 6px; }
+    .card-use { font-size: 10px; }
+    .card-link { font-size: 13px; }
+    .levels-block { padding: 12px; }
+    .price-block { padding: 10px 12px; }
+    footer { padding: 24px 16px; font-size: 11px; line-height: 1.8; }
+    footer code { display: inline-block; margin-top: 4px; font-size: 10px; }
+  }
+  @media (max-width: 400px) {
+    h1 { font-size: 20px; }
+    .card { padding: 14px; }
+    .card-badges { flex-wrap: wrap; }
+    .stat-num { font-size: 20px; }
+    .stats { gap: 14px; }
+  }
+  .price-block { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 12px 14px; margin-bottom: 14px; }
+  .price-block-title { font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text2); margin-bottom: 10px; }
+  .price-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 5px; gap: 8px; }
+  .price-row:last-child { margin-bottom: 0; }
+  .price-plan { font-size: 11px; font-weight: 600; color: var(--text); min-width: 80px; }
+  .price-amount { font-size: 12px; font-weight: 700; color: var(--accent); white-space: nowrap; }
+  .price-desc { font-size: 10px; color: var(--text2); flex: 1; text-align: right; line-height: 1.3; }
+</style>
+</head>
+<body>
+<!-- Полный HTML гайда — см. файл на GitHub -->
+<!-- Файл слишком большой для инлайн-записи, используй скрипт update_guide.js -->
+<script>window.location.href = 'https://github.com/ponomarev-igor/Ai-gude';</script>
+</body>
+</html>
