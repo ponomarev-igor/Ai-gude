@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Нейросети мира — полный гид</title>
-<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;600;800&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;600;800&amp;family=Golos+Text:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
 <style>
   :root {
     --bg: #0a0a0f;
@@ -90,36 +90,74 @@
     .header-sub { font-size: 14px; }
     .stats { gap: 20px; }
     .stat-num { font-size: 24px; }
-    .filters-wrap { padding: 16px 12px; gap: 8px; overflow-x: auto; flex-wrap: nowrap; justify-content: flex-start; -webkit-overflow-scrolling: touch; scrollbar-width: none; position: relative; }
+
+    .filters-wrap {
+      padding: 16px 12px;
+      gap: 8px;
+      overflow-x: auto;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      position: relative;
+    }
     .filters-wrap::-webkit-scrollbar { display: none; }
-    .filters-wrap::after { content: ''; position: absolute; right: 0; top: 0; bottom: 0; width: 40px; background: linear-gradient(to right, transparent, var(--bg)); pointer-events: none; }
-    .filter-btn { font-size: 12px; padding: 7px 14px; white-space: nowrap; flex-shrink: 0; }
+    .filters-wrap::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 40px;
+      background: linear-gradient(to right, transparent, var(--bg));
+      pointer-events: none;
+    }
+    .filter-btn {
+      font-size: 12px;
+      padding: 7px 14px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
     main { padding: 24px 16px; }
     .section-title { font-size: 10px; margin-bottom: 16px; }
-    .cards-grid { grid-template-columns: 1fr; gap: 16px; margin-bottom: 40px; }
+
+    .cards-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
     .card { padding: 18px; border-radius: 14px; }
     .card-name { font-size: 12px; }
     .card-icon { width: 40px; height: 40px; font-size: 18px; }
     .card-desc { font-size: 12px; }
+
     .level-row { gap: 6px; }
     .level-desc-row { margin-left: 0; font-size: 10px; }
     .level-badge { font-size: 9px; padding: 2px 6px; min-width: 68px; }
     .level-time { font-size: 10px; min-width: 72px; }
+
     .price-row { flex-wrap: wrap; gap: 4px; }
     .price-plan { min-width: auto; font-size: 10px; }
     .price-amount { font-size: 11px; }
     .price-desc { font-size: 9px; text-align: left; flex-basis: 100%; }
+
     .card-tags { gap: 4px; }
     .tag { font-size: 10px; padding: 2px 8px; }
     .badge { font-size: 9px; }
+
     .card-footer { flex-direction: column; align-items: flex-start; gap: 6px; }
     .card-use { font-size: 10px; }
     .card-link { font-size: 13px; }
+
     .levels-block { padding: 12px; }
     .price-block { padding: 10px 12px; }
+
     footer { padding: 24px 16px; font-size: 11px; line-height: 1.8; }
     footer code { display: inline-block; margin-top: 4px; font-size: 10px; }
   }
+
   @media (max-width: 400px) {
     h1 { font-size: 20px; }
     .card { padding: 14px; }
@@ -127,6 +165,7 @@
     .stat-num { font-size: 20px; }
     .stats { gap: 14px; }
   }
+
   .price-block { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 12px 14px; margin-bottom: 14px; }
   .price-block-title { font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text2); margin-bottom: 10px; }
   .price-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 5px; gap: 8px; }
@@ -137,8 +176,2022 @@
 </style>
 </head>
 <body>
-<!-- Полный HTML гайда — см. файл на GitHub -->
-<!-- Файл слишком большой для инлайн-записи, используй скрипт update_guide.js -->
-<script>window.location.href = 'https://github.com/ponomarev-igor/Ai-gude';</script>
+<header>
+<div class="header-tag">Вайб-кодинг · База знаний 2026</div>
+<h1>Нейросети мира</h1>
+<p class="header-sub">Полный гид по 24 AI-инструментам — что делает каждый, уровни освоения и сколько времени нужно на каждый</p>
+<div class="stats">
+<div class="stat"><div class="stat-num">50+</div><div class="stat-label">Инструментов</div></div>
+<div class="stat"><div class="stat-num">9</div><div class="stat-label">Категорий</div></div>
+<div class="stat"><div class="stat-num">20+</div><div class="stat-label">Бесплатных</div></div>
+<div class="stat"><div class="stat-num">3</div><div class="stat-label">Уровня освоения</div></div>
+</div>
+</header>
+<div class="filters-wrap">
+<button class="filter-btn active" onclick="filter('all',this)">Все</button>
+<button class="filter-btn" onclick="filter('text',this)">Текст и код</button>
+<button class="filter-btn" onclick="filter('image',this)">Изображения</button>
+<button class="filter-btn" onclick="filter('video',this)">Видео</button>
+<button class="filter-btn" onclick="filter('audio',this)">Голос и музыка</button>
+<button class="filter-btn" onclick="filter('auto',this)">Автоматизация</button>
+<button class="filter-btn" onclick="filter('search',this)">Поиск</button>
+<button class="filter-btn" onclick="filter('ide',this)">💻 IDE и редакторы</button>
+<button class="filter-btn" onclick="filter('deploy',this)">🚀 Деплой и хостинг</button>
+<button class="filter-btn" onclick="filter('openclaw',this)">🦾 Open Claw</button>
+<button class="filter-btn" onclick="filter('vps',this)">🖥️ VPS серверы</button>
+</div>
+<main>
+<!-- ТЕКСТ И КОД -->
+<div class="section-title" data-cat="text">🧠 Текст и код</div>
+<div class="cards-grid" data-cat="text">
+<div class="card c-purple">
+<div class="card-header"><div class="card-left"><div class="card-icon">🤖</div><div><div class="card-name">Claude</div><div class="card-company">Anthropic</div></div></div><div class="card-badges"><span class="badge badge-partial">Частично</span></div></div>
+<p class="card-desc">Лучшая нейросеть для вайб-кодинга. Точно понимает задачи, делает меньше ошибок при работе с большими проектами, видит весь проект целиком. Работает через VS Code. Отлично пишет длинные тексты и анализирует документы.</p>
+<div class="card-tags"><span class="tag">Вайб-кодинг</span><span class="tag">VS Code</span><span class="tag">Длинный контекст</span><span class="tag">API</span></div>
+<div class="levels-block">
+<div class="levels-title">Уровни освоения</div>
+<div class="level-row"><span class="level-badge lb-b">Начальный</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:20%"></div></div><span class="level-time">1–2 дня</span></div>
+<div class="level-desc-row">Базовые вопросы, простые тексты, первые промпты</div>
+<div class="level-row"><span class="level-badge lb-m">Средний</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:45%"></div></div><span class="level-time">2–3 недели</span></div>
+<div class="level-desc-row">Системные промпты, работа с кодом, анализ документов, API</div>
+<div class="level-row"><span class="level-badge lb-p">Профи</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:75%"></div></div><span class="level-time">2–3 месяца</span></div>
+<div class="level-desc-row">Сложные агенты, MCP интеграции, многошаговые задачи</div>
+</div>
+
+<div class="price-block">
+<div class="price-block-title">💰 Тарифы</div>
+<div class="price-row">
+<span class="price-plan">Бесплатно</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">claude.ai — базовые функции</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Pro</span>
+<span class="price-amount">$20/мес</span>
+<span class="price-desc">Больше сообщений, Projects, расширенный контекст</span>
+</div>
+<div class="price-row">
+<span class="price-plan">API</span>
+<span class="price-amount">от $3/1M токенов</span>
+<span class="price-desc">Claude Haiku — дешевле, Sonnet/Opus — дороже</span>
+</div>
+</div><div class="card-footer"><span class="card-use">Лучший для: разработки</span><a class="card-link" href="https://claude.ai" target="_blank">claude.ai →</a></div>
+</div>
+<div class="card c-blue">
+<div class="card-header"><div class="card-left"><div class="card-icon">💬</div><div><div class="card-name">ChatGPT (GPT-4o)</div><div class="card-company">OpenAI</div></div></div><div class="card-badges"><span class="badge badge-partial">Частично</span></div></div>
+<p class="card-desc">Самый популярный AI в мире. Умеет всё: текст, код, анализ, изображения через DALL-E, голос. Есть GPTs — готовые кастомные агенты под разные задачи. Огромная экосистема плагинов и интеграций.</p>
+<div class="card-tags"><span class="tag">Текст</span><span class="tag">Код</span><span class="tag">Изображения</span><span class="tag">GPTs</span><span class="tag">Голос</span></div>
+<div class="levels-block">
+<div class="levels-title">Уровни освоения</div>
+<div class="level-row"><span class="level-badge lb-b">Начальный</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:10%"></div></div><span class="level-time">Пару часов</span></div>
+<div class="level-desc-row">Простые вопросы, написание текстов, базовое общение</div>
+<div class="level-row"><span class="level-badge lb-m">Средний</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:35%"></div></div><span class="level-time">1–2 недели</span></div>
+<div class="level-desc-row">Создание GPTs, работа с плагинами, изображения, голос</div>
+<div class="level-row"><span class="level-badge lb-p">Профи</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:65%"></div></div><span class="level-time">1–2 месяца</span></div>
+<div class="level-desc-row">API интеграции, продвинутые GPTs, автоматизация через API</div>
+</div>
+
+<div class="price-block">
+<div class="price-block-title">💰 Тарифы</div>
+<div class="price-row">
+<span class="price-plan">Бесплатно</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">GPT-4o с лимитами</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Plus</span>
+<span class="price-amount">$20/мес</span>
+<span class="price-desc">GPT-4o без лимитов, DALL-E, Advanced Voice</span>
+</div>
+<div class="price-row">
+<span class="price-plan">API</span>
+<span class="price-amount">от $2.5/1M токенов</span>
+<span class="price-desc">GPT-4o Mini дешевле, GPT-4o дороже</span>
+</div>
+</div><div class="card-footer"><span class="card-use">Лучший для: всего сразу</span><a class="card-link" href="https://chatgpt.com" target="_blank">chatgpt.com →</a></div>
+</div>
+<div class="card c-blue">
+<div class="card-header"><div class="card-left"><div class="card-icon">✨</div><div><div class="card-name">Gemini</div><div class="card-company">Google</div></div></div><div class="card-badges"><span class="badge badge-partial">Частично</span></div></div>
+<p class="card-desc">AI от Google с глубокой интеграцией: Docs, Gmail, Drive, YouTube. Gemini Flash — очень быстрая и дешёвая модель для API. Хорошо анализирует видео и изображения. Встроен в Google Workspace.</p>
+<div class="card-tags"><span class="tag">Google Docs</span><span class="tag">Gmail</span><span class="tag">YouTube</span><span class="tag">Быстрый API</span></div>
+<div class="levels-block">
+<div class="levels-title">Уровни освоения</div>
+<div class="level-row"><span class="level-badge lb-b">Начальный</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:10%"></div></div><span class="level-time">Пару часов</span></div>
+<div class="level-desc-row">Базовое использование через интерфейс, простые запросы</div>
+<div class="level-row"><span class="level-badge lb-m">Средний</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:30%"></div></div><span class="level-time">1 неделя</span></div>
+<div class="level-desc-row">Интеграция с Google Workspace, анализ документов и видео</div>
+<div class="level-row"><span class="level-badge lb-p">Профи</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:60%"></div></div><span class="level-time">1–2 месяца</span></div>
+<div class="level-desc-row">Google AI Studio, API интеграции, мультимодальные проекты</div>
+</div>
+
+<div class="price-block">
+<div class="price-block-title">💰 Тарифы</div>
+<div class="price-row">
+<span class="price-plan">Бесплатно</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">Gemini в браузере + API Flash с лимитами</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Advanced</span>
+<span class="price-amount">$19.99/мес</span>
+<span class="price-desc">Gemini Ultra, интеграция Workspace</span>
+</div>
+<div class="price-row">
+<span class="price-plan">API</span>
+<span class="price-amount">бесплатно</span>
+<span class="price-desc">Flash 1.5 бесплатно, Pro от $3.5/1M токенов</span>
+</div>
+</div><div class="card-footer"><span class="card-use">Лучший для: Google-экосистемы</span><a class="card-link" href="https://gemini.google.com" target="_blank">gemini.google.com →</a></div>
+</div>
+<div class="card c-teal">
+<div class="card-header"><div class="card-left"><div class="card-icon">⚡</div><div><div class="card-name">Grok</div><div class="card-company">xAI (Илон Маск)</div></div></div><div class="card-badges"><span class="badge badge-partial">Частично</span></div></div>
+<p class="card-desc">AI от Илона Маска, интегрирован в X (Twitter). Доступ к актуальным данным в реальном времени. Более дерзкий и без цензуры. Grok 3 конкурирует с GPT-4o. Бесплатно для пользователей X. Идеален для анализа трендов.</p>
+<div class="card-tags"><span class="tag">Реальное время</span><span class="tag">Twitter/X</span><span class="tag">Новости</span><span class="tag">Без цензуры</span></div>
+<div class="levels-block">
+<div class="levels-title">Уровни освоения</div>
+<div class="level-row"><span class="level-badge lb-b">Начальный</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:10%"></div></div><span class="level-time">Пару часов</span></div>
+<div class="level-desc-row">Базовые запросы, поиск актуальной информации</div>
+<div class="level-row"><span class="level-badge lb-m">Средний</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:25%"></div></div><span class="level-time">3–5 дней</span></div>
+<div class="level-desc-row">Анализ трендов X, мониторинг новостей, генерация контента</div>
+<div class="level-row"><span class="level-badge lb-p">Профи</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:50%"></div></div><span class="level-time">3–4 недели</span></div>
+<div class="level-desc-row">API интеграция, автоматизация мониторинга, аналитика</div>
+</div>
+
+<div class="price-block">
+<div class="price-block-title">💰 Тарифы</div>
+<div class="price-row">
+<span class="price-plan">Бесплатно</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">Базовый доступ через X аккаунт</span>
+</div>
+<div class="price-row">
+<span class="price-plan">X Premium</span>
+<span class="price-amount">$8/мес</span>
+<span class="price-desc">Полный Grok 3 без лимитов</span>
+</div>
+<div class="price-row">
+<span class="price-plan">API</span>
+<span class="price-amount">от $5/1M токенов</span>
+<span class="price-desc">Grok-2 API через x.ai</span>
+</div>
+</div><div class="card-footer"><span class="card-use">Лучший для: актуальных данных</span><a class="card-link" href="https://grok.com" target="_blank">grok.com →</a></div>
+</div>
+<div class="card c-green">
+<div class="card-header"><div class="card-left"><div class="card-icon">🐋</div><div><div class="card-name">DeepSeek</div><div class="card-company">DeepSeek (Китай)</div></div></div><div class="card-badges"><span class="badge badge-free">Бесплатно</span></div></div>
+<p class="card-desc">Китайская модель, взорвавшая мир в 2025. По качеству кода сравнима с GPT-4o но почти бесплатная. Открытый код — можно запустить локально. Отлично пишет код и решает математику. Идеальна для бюджетных API-интеграций.</p>
+<div class="card-tags"><span class="tag">Открытый код</span><span class="tag">Бесплатно</span><span class="tag">Математика</span><span class="tag">Код</span></div>
+<div class="levels-block">
+<div class="levels-title">Уровни освоения</div>
+<div class="level-row"><span class="level-badge lb-b">Начальный</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:10%"></div></div><span class="level-time">Пару часов</span></div>
+<div class="level-desc-row">Использование через веб-интерфейс deepseek.com</div>
+<div class="level-row"><span class="level-badge lb-m">Средний</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:35%"></div></div><span class="level-time">1–2 недели</span></div>
+<div class="level-desc-row">API интеграции, вайб-кодинг, работа с кодом</div>
+<div class="level-row"><span class="level-badge lb-p">Профи</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:70%"></div></div><span class="level-time">2–3 месяца</span></div>
+<div class="level-desc-row">Локальный запуск через Ollama, файнтюнинг, кастомные модели</div>
+</div>
+
+<div class="price-block">
+<div class="price-block-title">💰 Тарифы</div>
+<div class="price-row">
+<span class="price-plan">Бесплатно</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">Веб-интерфейс и API с лимитами</span>
+</div>
+<div class="price-row">
+<span class="price-plan">API</span>
+<span class="price-amount">от $0.14/1M токенов</span>
+<span class="price-desc">В 10–20 раз дешевле OpenAI</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Локально</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">Через Ollama — полностью бесплатно</span>
+</div>
+</div><div class="card-footer"><span class="card-use">Лучший для: бюджетного API</span><a class="card-link" href="https://deepseek.com" target="_blank">deepseek.com →</a></div>
+</div>
+<div class="card c-green">
+<div class="card-header"><div class="card-left"><div class="card-icon">🦙</div><div><div class="card-name">Llama</div><div class="card-company">Meta</div></div></div><div class="card-badges"><span class="badge badge-free">Бесплатно</span></div></div>
+<p class="card-desc">Открытая модель от Meta. Запускается локально бесплатно без интернета. Через Ollama устанавливается в пару команд. Идеально для приватных проектов. Основа для тысяч других AI-продуктов.</p>
+<div class="card-tags"><span class="tag">Локальный запуск</span><span class="tag">Приватность</span><span class="tag">Ollama</span><span class="tag">Бесплатно</span></div>
+<div class="levels-block">
+<div class="levels-title">Уровни освоения</div>
+<div class="level-row"><span class="level-badge lb-b">Начальный</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:30%"></div></div><span class="level-time">2–3 дня</span></div>
+<div class="level-desc-row">Установка Ollama, запуск первой модели, базовое общение</div>
+<div class="level-row"><span class="level-badge lb-m">Средний</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:55%"></div></div><span class="level-time">3–4 недели</span></div>
+<div class="level-desc-row">Подключение к приложениям, выбор нужной модели, настройка</div>
+<div class="level-row"><span class="level-badge lb-p">Профи</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:85%"></div></div><span class="level-time">3–6 месяцев</span></div>
+<div class="level-desc-row">Файнтюнинг, квантизация, RAG системы, продакшн деплой</div>
+</div>
+
+<div class="price-block">
+<div class="price-block-title">💰 Тарифы</div>
+<div class="price-row">
+<span class="price-plan">Бесплатно</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">Открытый код — скачивай и запускай</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Ollama</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">Локальный запуск на своём железе</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Через API</span>
+<span class="price-amount">от $0.1/1M токенов</span>
+<span class="price-desc">Groq, Together.ai, Fireworks</span>
+</div>
+</div><div class="card-footer"><span class="card-use">Лучший для: приватных данных</span><a class="card-link" href="https://llama.meta.com" target="_blank">llama.meta.com →</a></div>
+</div>
+<div class="card c-blue">
+<div class="card-header"><div class="card-left"><div class="card-icon">🌊</div><div><div class="card-name">Mistral</div><div class="card-company">Mistral AI (Франция)</div></div></div><div class="card-badges"><span class="badge badge-partial">Частично</span></div></div>
+<p class="card-desc">Европейская альтернатива. Быстрая, лёгкая, дешёвая через API. Mistral Large конкурирует с GPT-4. Соответствует GDPR. Хороша для мультиязычных задач. Идеальна для европейских проектов.</p>
+<div class="card-tags"><span class="tag">Европа</span><span class="tag">GDPR</span><span class="tag">Быстрый API</span><span class="tag">Мультиязычный</span></div>
+<div class="levels-block">
+<div class="levels-title">Уровни освоения</div>
+<div class="level-row"><span class="level-badge lb-b">Начальный</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:15%"></div></div><span class="level-time">1 день</span></div>
+<div class="level-desc-row">Веб-интерфейс Le Chat, базовые промпты и задачи</div>
+<div class="level-row"><span class="level-badge lb-m">Средний</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:40%"></div></div><span class="level-time">1–2 недели</span></div>
+<div class="level-desc-row">API интеграции, выбор нужной модели под задачу</div>
+<div class="level-row"><span class="level-badge lb-p">Профи</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:65%"></div></div><span class="level-time">1–2 месяца</span></div>
+<div class="level-desc-row">Продакшн деплой, GDPR-совместимые приложения, файнтюнинг</div>
+</div>
+
+<div class="price-block">
+<div class="price-block-title">💰 Тарифы</div>
+<div class="price-row">
+<span class="price-plan">Le Chat</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">Веб-интерфейс бесплатно</span>
+</div>
+<div class="price-row">
+<span class="price-plan">API</span>
+<span class="price-amount">от $0.1/1M токенов</span>
+<span class="price-desc">Mistral 7B — дёшево, Large — дороже</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Self-hosted</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">Открытые модели локально через Ollama</span>
+</div>
+</div><div class="card-footer"><span class="card-use">Лучший для: ЕС-проектов</span><a class="card-link" href="https://mistral.ai" target="_blank">mistral.ai →</a></div>
+</div>
+<div class="card c-purple">
+<div class="card-header"><div class="card-left"><div class="card-icon">🖥️</div><div><div class="card-name">Cursor</div><div class="card-company">Anysphere</div></div></div><div class="card-badges"><span class="badge badge-partial">Частично</span></div></div>
+<p class="card-desc">Редактор кода специально для вайб-кодинга. Функция Composer — описываешь задачу, меняет сразу несколько файлов проекта. Видит весь проект целиком. Самый популярный инструмент среди вайб-кодеров в 2025.</p>
+<div class="card-tags"><span class="tag">Вайб-кодинг</span><span class="tag">Composer</span><span class="tag">Весь проект</span><span class="tag">Claude + GPT</span></div>
+<div class="levels-block">
+<div class="levels-title">Уровни освоения</div>
+<div class="level-row"><span class="level-badge lb-b">Начальный</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:20%"></div></div><span class="level-time">1–2 дня</span></div>
+<div class="level-desc-row">Установка, базовый чат с кодом, простые правки файлов</div>
+<div class="level-row"><span class="level-badge lb-m">Средний</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:45%"></div></div><span class="level-time">2–3 недели</span></div>
+<div class="level-desc-row">Composer, работа с целым проектом, контекстные файлы</div>
+<div class="level-row"><span class="level-badge lb-p">Профи</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:70%"></div></div><span class="level-time">2–3 месяца</span></div>
+<div class="level-desc-row">Кастомные правила, MCP интеграции, агентные сценарии</div>
+</div>
+
+<div class="price-block">
+<div class="price-block-title">💰 Тарифы</div>
+<div class="price-row">
+<span class="price-plan">Hobby</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">2 000 запросов/мес, базовые функции</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Pro</span>
+<span class="price-amount">$20/мес</span>
+<span class="price-desc">Безлимит, быстрые ответы, GPT-4o/Claude</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Business</span>
+<span class="price-amount">$40/мес</span>
+<span class="price-desc">Командная работа, централизованное управление</span>
+</div>
+</div><div class="card-footer"><span class="card-use">Лучший для: вайб-кодинга</span><a class="card-link" href="https://cursor.com" target="_blank">cursor.com →</a></div>
+</div>
+<div class="card c-blue">
+<div class="card-header"><div class="card-left"><div class="card-icon">👾</div><div><div class="card-name">GitHub Copilot</div><div class="card-company">Microsoft / GitHub</div></div></div><div class="card-badges"><span class="badge badge-partial">Частично</span></div></div>
+<p class="card-desc">AI встроен прямо в VS Code. Дописывает код в реальном времени — видишь серую подсказку, нажимаешь Tab. 92% разработчиков США используют его ежедневно. 90% компаний Fortune 100 используют его.</p>
+<div class="card-tags"><span class="tag">VS Code</span><span class="tag">Автодополнение</span><span class="tag">GitHub</span><span class="tag">Реальное время</span></div>
+<div class="levels-block">
+<div class="levels-title">Уровни освоения</div>
+<div class="level-row"><span class="level-badge lb-b">Начальный</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:15%"></div></div><span class="level-time">1 день</span></div>
+<div class="level-desc-row">Установка расширения, принятие первых подсказок кода</div>
+<div class="level-row"><span class="level-badge lb-m">Средний</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:30%"></div></div><span class="level-time">1 неделя</span></div>
+<div class="level-desc-row">Чат в IDE, генерация функций, объяснение кода</div>
+<div class="level-row"><span class="level-badge lb-p">Профи</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:55%"></div></div><span class="level-time">3–4 недели</span></div>
+<div class="level-desc-row">Workspace контекст, кастомные инструкции, агент-режим</div>
+</div>
+
+<div class="price-block">
+<div class="price-block-title">💰 Тарифы</div>
+<div class="price-row">
+<span class="price-plan">Бесплатно</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">2 000 автодополнений + 50 чатов в месяц</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Pro</span>
+<span class="price-amount">$10/мес</span>
+<span class="price-desc">Неограниченно, GPT-4o, Claude</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Business</span>
+<span class="price-amount">$19/мес</span>
+<span class="price-desc">Для команд, политики доступа</span>
+</div>
+</div><div class="card-footer"><span class="card-use">Лучший для: VS Code</span><a class="card-link" href="https://github.com/features/copilot" target="_blank">github.com →</a></div>
+</div>
+<div class="card c-green">
+<div class="card-header"><div class="card-left"><div class="card-icon">⚡</div><div><div class="card-name">Groq</div><div class="card-company">Groq</div></div></div><div class="card-badges"><span class="badge badge-free">Бесплатно</span></div></div>
+<p class="card-desc">Платформа для запуска открытых моделей на чипах LPU. Скорость в 10–20 раз быстрее чем у OpenAI. Бесплатный API с лимитами. Идеален для ботов где важна скорость. Запускает Llama, Mixtral, Gemma.</p>
+<div class="card-tags"><span class="tag">Сверхбыстрый</span><span class="tag">Бесплатный API</span><span class="tag">Боты</span><span class="tag">LPU чипы</span></div>
+<div class="levels-block">
+<div class="levels-title">Уровни освоения</div>
+<div class="level-row"><span class="level-badge lb-b">Начальный</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:20%"></div></div><span class="level-time">1–2 дня</span></div>
+<div class="level-desc-row">Получение API ключа, первые запросы через Groq Playground</div>
+<div class="level-row"><span class="level-badge lb-m">Средний</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:40%"></div></div><span class="level-time">1–2 недели</span></div>
+<div class="level-desc-row">Интеграция в бота или приложение, выбор нужной модели</div>
+<div class="level-row"><span class="level-badge lb-p">Профи</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:60%"></div></div><span class="level-time">1 месяц</span></div>
+<div class="level-desc-row">Оптимизация под лимиты, стриминг, балансировка нагрузки</div>
+</div>
+
+<div class="price-block">
+<div class="price-block-title">💰 Тарифы</div>
+<div class="price-row">
+<span class="price-plan">Бесплатно</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">API с лимитами — 14 400 запросов/день</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Flex</span>
+<span class="price-amount">Pay-as-you-go</span>
+<span class="price-desc">от $0.05/1M токенов — очень дёшево</span>
+</div>
+<div class="price-row">
+<span class="price-plan">On-Demand</span>
+<span class="price-amount">$0.59/1M токенов</span>
+<span class="price-desc">Без лимитов скорости, Llama 3.3 70B</span>
+</div>
+</div><div class="card-footer"><span class="card-use">Лучший для: скорости</span><a class="card-link" href="https://groq.com" target="_blank">groq.com →</a></div>
+</div>
+</div>
+<!-- ИЗОБРАЖЕНИЯ -->
+<div class="section-title" data-cat="image">🎨 Изображения</div>
+<div class="cards-grid" data-cat="image">
+<div class="card c-pink">
+<div class="card-header"><div class="card-left"><div class="card-icon">🎭</div><div><div class="card-name">Midjourney</div><div class="card-company">Midjourney</div></div></div><div class="card-badges"><span class="badge badge-paid">Платно</span></div></div>
+<p class="card-desc">Стандарт качества в генерации изображений. Лучшее художественное качество среди всех. Работает через Discord или веб. Понимает художественные стили, знает художников. От $10/мес. Выбор профессиональных дизайнеров.</p>
+<div class="card-tags"><span class="tag">Топ качество</span><span class="tag">Discord</span><span class="tag">Худ. стили</span><span class="tag">$10/мес</span></div>
+<div class="levels-block">
+<div class="levels-title">Уровни освоения</div>
+<div class="level-row"><span class="level-badge lb-b">Начальный</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:20%"></div></div><span class="level-time">2–3 дня</span></div>
+<div class="level-desc-row">Первые промпты, базовые параметры --ar --v --style</div>
+<div class="level-row"><span class="level-badge lb-m">Средний</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:50%"></div></div><span class="level-time">2–4 недели</span></div>
+<div class="level-desc-row">Продвинутые промпты, референсы, стилизация, персонажи</div>
+<div class="level-row"><span class="level-badge lb-p">Профи</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:80%"></div></div><span class="level-time">3–6 месяцев</span></div>
+<div class="level-desc-row">Consistent characters, Style tuner, коммерческие проекты</div>
+</div>
+
+<div class="price-block">
+<div class="price-block-title">💰 Тарифы</div>
+<div class="price-row">
+<span class="price-plan">Basic</span>
+<span class="price-amount">$10/мес</span>
+<span class="price-desc">200 изображений в месяц</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Standard</span>
+<span class="price-amount">$30/мес</span>
+<span class="price-desc">15 ч GPU, безлимит релаксед</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Pro</span>
+<span class="price-amount">$60/мес</span>
+<span class="price-desc">30 ч GPU, скрытый режим, 12 параллельных</span>
+</div>
+</div><div class="card-footer"><span class="card-use">Лучший для: арта и дизайна</span><a class="card-link" href="https://midjourney.com" target="_blank">midjourney.com →</a></div>
+</div>
+<div class="card c-blue">
+<div class="card-header"><div class="card-left"><div class="card-icon">🖼️</div><div><div class="card-name">DALL-E 3</div><div class="card-company">OpenAI</div></div></div><div class="card-badges"><span class="badge badge-partial">Частично</span></div></div>
+<p class="card-desc">Генерация изображений встроенная в ChatGPT. Ничего дополнительно не нужно. Лучше других понимает инструкции на русском. Хорош для иллюстраций к постам и маркетинга. Доступен с ChatGPT Plus.</p>
+<div class="card-tags"><span class="tag">Встроен в ChatGPT</span><span class="tag">Русский язык</span><span class="tag">Маркетинг</span></div>
+<div class="levels-block">
+<div class="levels-title">Уровни освоения</div>
+<div class="level-row"><span class="level-badge lb-b">Начальный</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:8%"></div></div><span class="level-time">Пару часов</span></div>
+<div class="level-desc-row">Описываешь что хочешь — ChatGPT генерирует картинку</div>
+<div class="level-row"><span class="level-badge lb-m">Средний</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:25%"></div></div><span class="level-time">3–5 дней</span></div>
+<div class="level-desc-row">Детальные промпты, стили, редактирование через чат</div>
+<div class="level-row"><span class="level-badge lb-p">Профи</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:45%"></div></div><span class="level-time">2–3 недели</span></div>
+<div class="level-desc-row">API интеграция, автоматизация генерации контента</div>
+</div>
+
+<div class="price-block">
+<div class="price-block-title">💰 Тарифы</div>
+<div class="price-row">
+<span class="price-plan">ChatGPT Free</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">Ограниченное количество картинок</span>
+</div>
+<div class="price-row">
+<span class="price-plan">ChatGPT Plus</span>
+<span class="price-amount">$20/мес</span>
+<span class="price-desc">Без лимитов через ChatGPT</span>
+</div>
+<div class="price-row">
+<span class="price-plan">API</span>
+<span class="price-amount">от $0.04 за картинку</span>
+<span class="price-desc">1024×1024 — $0.04, HD — $0.08</span>
+</div>
+</div><div class="card-footer"><span class="card-use">Лучший для: быстрых картинок</span><a class="card-link" href="https://openai.com/dall-e-3" target="_blank">openai.com →</a></div>
+</div>
+<div class="card c-green">
+<div class="card-header"><div class="card-left"><div class="card-icon">🌐</div><div><div class="card-name">Stable Diffusion</div><div class="card-company">Stability AI</div></div></div><div class="card-badges"><span class="badge badge-free">Бесплатно</span></div></div>
+<p class="card-desc">Открытая модель. Запускается локально бесплатно. Тысячи дополнений и стилей от сообщества. Через ComfyUI становится очень мощным. Требует GPU. Полный контроль над результатом — не отправляешь данные в облако.</p>
+<div class="card-tags"><span class="tag">Открытый код</span><span class="tag">Локально</span><span class="tag">ComfyUI</span><span class="tag">Сообщество</span></div>
+<div class="levels-block">
+<div class="levels-title">Уровни освоения</div>
+<div class="level-row"><span class="level-badge lb-b">Начальный</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:35%"></div></div><span class="level-time">3–5 дней</span></div>
+<div class="level-desc-row">Установка через Automatic1111, первые генерации</div>
+<div class="level-row"><span class="level-badge lb-m">Средний</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:60%"></div></div><span class="level-time">1–2 месяца</span></div>
+<div class="level-desc-row">ComfyUI, LoRA модели, img2img, inpainting</div>
+<div class="level-row"><span class="level-badge lb-p">Профи</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:90%"></div></div><span class="level-time">6–12 месяцев</span></div>
+<div class="level-desc-row">Обучение LoRA, сложные пайплайны, API деплой</div>
+</div>
+
+<div class="price-block">
+<div class="price-block-title">💰 Тарифы</div>
+<div class="price-row">
+<span class="price-plan">Локально</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">Бесплатно если есть GPU</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Stability API</span>
+<span class="price-amount">от $0.003 за картинку</span>
+<span class="price-desc">SD3 Medium в облаке</span>
+</div>
+<div class="price-row">
+<span class="price-plan">DreamStudio</span>
+<span class="price-amount">$10 = 1 000 кредитов</span>
+<span class="price-desc">Официальный веб-интерфейс</span>
+</div>
+</div><div class="card-footer"><span class="card-use">Лучший для: локальной работы</span><a class="card-link" href="https://stability.ai" target="_blank">stability.ai →</a></div>
+</div>
+<div class="card c-orange">
+<div class="card-header"><div class="card-left"><div class="card-icon">🔥</div><div><div class="card-name">Flux</div><div class="card-company">Black Forest Labs</div></div></div><div class="card-badges"><span class="badge badge-partial">Частично</span></div></div>
+<p class="card-desc">Новое поколение — вышел в 2024 и стал стандартом реализма. Лучше Midjourney рендерит текст на изображениях. Очень реалистичные люди и сцены. Доступен через Replicate, fal.ai. Flux Dev бесплатно.</p>
+<div class="card-tags"><span class="tag">Реализм</span><span class="tag">Текст на картинках</span><span class="tag">Replicate</span></div>
+<div class="levels-block">
+<div class="levels-title">Уровни освоения</div>
+<div class="level-row"><span class="level-badge lb-b">Начальный</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:15%"></div></div><span class="level-time">1–2 дня</span></div>
+<div class="level-desc-row">Через fal.ai или Replicate, базовые промпты</div>
+<div class="level-row"><span class="level-badge lb-m">Средний</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:35%"></div></div><span class="level-time">1–2 недели</span></div>
+<div class="level-desc-row">API интеграция, разные версии модели (Dev, Pro, Schnell)</div>
+<div class="level-row"><span class="level-badge lb-p">Профи</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:60%"></div></div><span class="level-time">1–2 месяца</span></div>
+<div class="level-desc-row">ControlNet, LoRA, локальный запуск, сложные пайплайны</div>
+</div>
+
+<div class="price-block">
+<div class="price-block-title">💰 Тарифы</div>
+<div class="price-row">
+<span class="price-plan">Flux Dev</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">Бесплатно для некоммерческого использования</span>
+</div>
+<div class="price-row">
+<span class="price-plan">fal.ai</span>
+<span class="price-amount">от $0.003 за картинку</span>
+<span class="price-desc">Flux Schnell — быстро и дёшево</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Flux Pro</span>
+<span class="price-amount">от $0.055 за картинку</span>
+<span class="price-desc">Максимальное качество через API</span>
+</div>
+</div><div class="card-footer"><span class="card-use">Лучший для: реализма</span><a class="card-link" href="https://blackforestlabs.ai" target="_blank">blackforestlabs.ai →</a></div>
+</div>
+</div>
+<!-- ВИДЕО -->
+<div class="section-title" data-cat="video">🎬 Видео</div>
+<div class="cards-grid" data-cat="video">
+<div class="card c-red">
+<div class="card-header"><div class="card-left"><div class="card-icon">🎥</div><div><div class="card-name">Runway Gen-3</div><div class="card-company">Runway</div></div></div><div class="card-badges"><span class="badge badge-partial">Частично</span></div></div>
+<p class="card-desc">Лидер рынка AI-видео для профессионалов. Генерирует видео из текста или изображения. Motion Brush, удаление фона. Используется в Голливуде и рекламных студиях. Дорогой но мощный.</p>
+<div class="card-tags"><span class="tag">Профи</span><span class="tag">Motion Brush</span><span class="tag">Голливуд</span><span class="tag">Реклама</span></div>
+<div class="levels-block">
+<div class="levels-title">Уровни освоения</div>
+<div class="level-row"><span class="level-badge lb-b">Начальный</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:20%"></div></div><span class="level-time">2–3 дня</span></div>
+<div class="level-desc-row">Text-to-video, image-to-video, базовые настройки</div>
+<div class="level-row"><span class="level-badge lb-m">Средний</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:55%"></div></div><span class="level-time">3–5 недель</span></div>
+<div class="level-desc-row">Motion Brush, Camera Controls, инструменты редактирования</div>
+<div class="level-row"><span class="level-badge lb-p">Профи</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:85%"></div></div><span class="level-time">3–6 месяцев</span></div>
+<div class="level-desc-row">Коммерческое производство, сложные сцены, пост-продакшн</div>
+</div>
+
+<div class="price-block">
+<div class="price-block-title">💰 Тарифы</div>
+<div class="price-row">
+<span class="price-plan">Бесплатно</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">125 кредитов при регистрации</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Standard</span>
+<span class="price-amount">$15/мес</span>
+<span class="price-desc">625 кредитов/мес</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Pro</span>
+<span class="price-amount">$35/мес</span>
+<span class="price-desc">2 250 кредитов/мес, приоритет</span>
+</div>
+</div><div class="card-footer"><span class="card-use">Лучший для: проф. видео</span><a class="card-link" href="https://runwayml.com" target="_blank">runwayml.com →</a></div>
+</div>
+<div class="card c-blue">
+<div class="card-header"><div class="card-left"><div class="card-icon">🌀</div><div><div class="card-name">Sora</div><div class="card-company">OpenAI</div></div></div><div class="card-badges"><span class="badge badge-paid">Платно</span></div></div>
+<p class="card-desc">Видео-модель от OpenAI. Реалистичные видео до 1 минуты из текста. Понимает физику — объекты двигаются натурально. Cinematic качество. Доступен в ChatGPT Plus и Pro.</p>
+<div class="card-tags"><span class="tag">До 1 минуты</span><span class="tag">Физика</span><span class="tag">Cinematic</span><span class="tag">ChatGPT</span></div>
+<div class="levels-block">
+<div class="levels-title">Уровни освоения</div>
+<div class="level-row"><span class="level-badge lb-b">Начальный</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:15%"></div></div><span class="level-time">1–2 дня</span></div>
+<div class="level-desc-row">Базовые промпты, первые видео, настройки длительности</div>
+<div class="level-row"><span class="level-badge lb-m">Средний</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:40%"></div></div><span class="level-time">2–3 недели</span></div>
+<div class="level-desc-row">Cinematic промпты, управление камерой, консистентность</div>
+<div class="level-row"><span class="level-badge lb-p">Профи</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:65%"></div></div><span class="level-time">2–3 месяца</span></div>
+<div class="level-desc-row">Сложные нарративы, серийный контент, коммерческое использование</div>
+</div>
+
+<div class="price-block">
+<div class="price-block-title">💰 Тарифы</div>
+<div class="price-row">
+<span class="price-plan">Plus</span>
+<span class="price-amount">$20/мес</span>
+<span class="price-desc">50 видео в месяц (720p)</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Pro</span>
+<span class="price-amount">$200/мес</span>
+<span class="price-desc">500 видео, 1080p, без водяного знака</span>
+</div>
+<div class="price-row">
+<span class="price-plan">API</span>
+<span class="price-amount">В разработке</span>
+<span class="price-desc">Ожидается коммерческий API</span>
+</div>
+</div><div class="card-footer"><span class="card-use">Лучший для: качества</span><a class="card-link" href="https://sora.com" target="_blank">sora.com →</a></div>
+</div>
+<div class="card c-teal">
+<div class="card-header"><div class="card-left"><div class="card-icon">🎞️</div><div><div class="card-name">Kling AI</div><div class="card-company">Kuaishou (Китай)</div></div></div><div class="card-badges"><span class="badge badge-partial">Частично</span></div></div>
+<p class="card-desc">Конкурент Sora. Видео до 2 минут. По реализму не уступает Sora но дешевле. Бесплатный план с лимитами. Отлично анимирует фотографии. Популярен из-за соотношения цена/качество.</p>
+<div class="card-tags"><span class="tag">До 2 минут</span><span class="tag">Анимация фото</span><span class="tag">Бесплатный план</span></div>
+<div class="levels-block">
+<div class="levels-title">Уровни освоения</div>
+<div class="level-row"><span class="level-badge lb-b">Начальный</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:15%"></div></div><span class="level-time">1–2 дня</span></div>
+<div class="level-desc-row">Анимация фото, базовые текстовые промпты</div>
+<div class="level-row"><span class="level-badge lb-m">Средний</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:35%"></div></div><span class="level-time">1–2 недели</span></div>
+<div class="level-desc-row">Управление камерой, длинные сцены, движение персонажей</div>
+<div class="level-row"><span class="level-badge lb-p">Профи</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:60%"></div></div><span class="level-time">1–2 месяца</span></div>
+<div class="level-desc-row">API интеграция, серийное производство, коммерческий контент</div>
+</div>
+
+<div class="price-block">
+<div class="price-block-title">💰 Тарифы</div>
+<div class="price-row">
+<span class="price-plan">Бесплатно</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">66 кредитов в месяц</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Standard</span>
+<span class="price-amount">$8.8/мес</span>
+<span class="price-desc">660 кредитов/мес</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Pro</span>
+<span class="price-amount">$27.6/мес</span>
+<span class="price-desc">3 000 кредитов/мес, 4К</span>
+</div>
+</div><div class="card-footer"><span class="card-use">Лучший для: бюджета</span><a class="card-link" href="https://klingai.com" target="_blank">klingai.com →</a></div>
+</div>
+<div class="card c-pink">
+<div class="card-header"><div class="card-left"><div class="card-icon">✨</div><div><div class="card-name">Pika</div><div class="card-company">Pika Labs</div></div></div><div class="card-badges"><span class="badge badge-partial">Частично</span></div></div>
+<p class="card-desc">Простой инструмент для коротких анимаций. Pikaffects — добавляет взрывы, дождь, снег одним кликом. Хорош для контента в соцсетях. Быстро и без лишних настроек. Бесплатный план.</p>
+<div class="card-tags"><span class="tag">Короткие видео</span><span class="tag">Pikaffects</span><span class="tag">Соцсети</span><span class="tag">Простой</span></div>
+<div class="levels-block">
+<div class="levels-title">Уровни освоения</div>
+<div class="level-row"><span class="level-badge lb-b">Начальный</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:8%"></div></div><span class="level-time">Пару часов</span></div>
+<div class="level-desc-row">Загружаешь фото, нажимаешь эффект — готово</div>
+<div class="level-row"><span class="level-badge lb-m">Средний</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:25%"></div></div><span class="level-time">3–5 дней</span></div>
+<div class="level-desc-row">Все Pikaffects, text-to-video, комбинация эффектов</div>
+<div class="level-row"><span class="level-badge lb-p">Профи</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:40%"></div></div><span class="level-time">2–3 недели</span></div>
+<div class="level-desc-row">API интеграция, автоматизация контент-пайплайнов</div>
+</div>
+
+<div class="price-block">
+<div class="price-block-title">💰 Тарифы</div>
+<div class="price-row">
+<span class="price-plan">Бесплатно</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">150 кредитов/мес</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Basic</span>
+<span class="price-amount">$8/мес</span>
+<span class="price-desc">700 кредитов/мес</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Standard</span>
+<span class="price-amount">$28/мес</span>
+<span class="price-desc">2 000 кредитов/мес</span>
+</div>
+</div><div class="card-footer"><span class="card-use">Лучший для: соцсетей</span><a class="card-link" href="https://pika.art" target="_blank">pika.art →</a></div>
+</div>
+</div>
+<!-- ГОЛОС И МУЗЫКА -->
+<div class="section-title" data-cat="audio">🎵 Голос и музыка</div>
+<div class="cards-grid" data-cat="audio">
+<div class="card c-orange">
+<div class="card-header"><div class="card-left"><div class="card-icon">🎙️</div><div><div class="card-name">ElevenLabs</div><div class="card-company">ElevenLabs</div></div></div><div class="card-badges"><span class="badge badge-partial">Частично</span></div></div>
+<p class="card-desc">Лучший для клонирования голоса. 1 минута записи — цифровой клон готов. Поддерживает русский. Для подкастов, YouTube без лица, Telegram-каналов. Бесплатный план 10 000 символов в месяц.</p>
+<div class="card-tags"><span class="tag">Клон голоса</span><span class="tag">Озвучка</span><span class="tag">Русский</span><span class="tag">Подкасты</span></div>
+<div class="levels-block">
+<div class="levels-title">Уровни освоения</div>
+<div class="level-row"><span class="level-badge lb-b">Начальный</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:15%"></div></div><span class="level-time">1 день</span></div>
+<div class="level-desc-row">Озвучка текста готовыми голосами, первый клон своего голоса</div>
+<div class="level-row"><span class="level-badge lb-m">Средний</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:35%"></div></div><span class="level-time">1–2 недели</span></div>
+<div class="level-desc-row">Клонирование голоса, настройка эмоций и стабильности</div>
+<div class="level-row"><span class="level-badge lb-p">Профи</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:60%"></div></div><span class="level-time">1–2 месяца</span></div>
+<div class="level-desc-row">API интеграция, автоматизация озвучки, мультиязычность</div>
+</div>
+
+<div class="price-block">
+<div class="price-block-title">💰 Тарифы</div>
+<div class="price-row">
+<span class="price-plan">Бесплатно</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">10 000 символов/мес, 3 голоса</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Starter</span>
+<span class="price-amount">$5/мес</span>
+<span class="price-desc">30 000 символов, клон голоса</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Creator</span>
+<span class="price-amount">$22/мес</span>
+<span class="price-desc">100 000 символов, коммерческое</span>
+</div>
+</div><div class="card-footer"><span class="card-use">Лучший для: голоса</span><a class="card-link" href="https://elevenlabs.io" target="_blank">elevenlabs.io →</a></div>
+</div>
+<div class="card c-purple">
+<div class="card-header"><div class="card-left"><div class="card-icon">🎸</div><div><div class="card-name">Suno</div><div class="card-company">Suno AI</div></div></div><div class="card-badges"><span class="badge badge-partial">Частично</span></div></div>
+<p class="card-desc">Генерирует полноценные песни с вокалом из текста. Описываешь — получаешь готовый трек. Звучит как настоящая музыка. Бесплатный план 50 треков в день. Для джинглов, фоновой музыки, контента.</p>
+<div class="card-tags"><span class="tag">Музыка с вокалом</span><span class="tag">Русский</span><span class="tag">Джинглы</span><span class="tag">50 треков/день</span></div>
+<div class="levels-block">
+<div class="levels-title">Уровни освоения</div>
+<div class="level-row"><span class="level-badge lb-b">Начальный</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:8%"></div></div><span class="level-time">Пару часов</span></div>
+<div class="level-desc-row">Описываешь жанр и тему — получаешь трек за секунды</div>
+<div class="level-row"><span class="level-badge lb-m">Средний</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:25%"></div></div><span class="level-time">3–5 дней</span></div>
+<div class="level-desc-row">Custom mode, собственные тексты, управление стилем</div>
+<div class="level-row"><span class="level-badge lb-p">Профи</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:45%"></div></div><span class="level-time">2–3 недели</span></div>
+<div class="level-desc-row">API, серийное производство треков, коммерческое использование</div>
+</div>
+
+<div class="price-block">
+<div class="price-block-title">💰 Тарифы</div>
+<div class="price-row">
+<span class="price-plan">Бесплатно</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">50 треков в день</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Pro</span>
+<span class="price-amount">$8/мес</span>
+<span class="price-desc">2 500 кредитов/мес, коммерческое</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Premier</span>
+<span class="price-amount">$24/мес</span>
+<span class="price-desc">10 000 кредитов/мес</span>
+</div>
+</div><div class="card-footer"><span class="card-use">Лучший для: музыки</span><a class="card-link" href="https://suno.com" target="_blank">suno.com →</a></div>
+</div>
+<div class="card c-teal">
+<div class="card-header"><div class="card-left"><div class="card-icon">🎧</div><div><div class="card-name">Udio</div><div class="card-company">Udio</div></div></div><div class="card-badges"><span class="badge badge-partial">Частично</span></div></div>
+<p class="card-desc">Конкурент Suno с фокусом на качество звука. Профессиональное студийное звучание. Лучше со сложными жанрами — джаз, классика. Позволяет расширять треки — добавлять продолжение или вступление.</p>
+<div class="card-tags"><span class="tag">Студийное качество</span><span class="tag">Расширение треков</span><span class="tag">Джаз</span><span class="tag">Классика</span></div>
+<div class="levels-block">
+<div class="levels-title">Уровни освоения</div>
+<div class="level-row"><span class="level-badge lb-b">Начальный</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:10%"></div></div><span class="level-time">Пару часов</span></div>
+<div class="level-desc-row">Базовые промпты, первые треки, выбор жанра</div>
+<div class="level-row"><span class="level-badge lb-m">Средний</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:28%"></div></div><span class="level-time">3–7 дней</span></div>
+<div class="level-desc-row">Расширение треков, детальные стилевые теги, инструментация</div>
+<div class="level-row"><span class="level-badge lb-p">Профи</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:50%"></div></div><span class="level-time">3–4 недели</span></div>
+<div class="level-desc-row">API интеграция, продакшн качество, коммерческие проекты</div>
+</div>
+
+<div class="price-block">
+<div class="price-block-title">💰 Тарифы</div>
+<div class="price-row">
+<span class="price-plan">Бесплатно</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">1 200 треков в месяц</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Standard</span>
+<span class="price-amount">$10/мес</span>
+<span class="price-desc">4 800 треков/мес, коммерческое</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Pro</span>
+<span class="price-amount">$30/мес</span>
+<span class="price-desc">14 400 треков/мес, приоритет</span>
+</div>
+</div><div class="card-footer"><span class="card-use">Лучший для: качества звука</span><a class="card-link" href="https://udio.com" target="_blank">udio.com →</a></div>
+</div>
+</div>
+<!-- АВТОМАТИЗАЦИЯ -->
+<div class="section-title" data-cat="auto">⚙️ Автоматизация</div>
+<div class="cards-grid" data-cat="auto">
+<div class="card c-orange">
+<div class="card-header"><div class="card-left"><div class="card-icon">🔗</div><div><div class="card-name">Make (Integromat)</div><div class="card-company">Make</div></div></div><div class="card-badges"><span class="badge badge-partial">Частично</span></div></div>
+<p class="card-desc">Визуальная автоматизация без кода. Соединяешь кубики-приложения. Новый заказ → Telegram → Google Sheets → письмо клиенту. 1000+ приложений. Можно встроить Claude/ChatGPT. Бесплатно 1000 операций в месяц.</p>
+<div class="card-tags"><span class="tag">Без кода</span><span class="tag">1000+ приложений</span><span class="tag">Telegram</span><span class="tag">Google Sheets</span></div>
+<div class="levels-block">
+<div class="levels-title">Уровни освоения</div>
+<div class="level-row"><span class="level-badge lb-b">Начальный</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:25%"></div></div><span class="level-time">3–5 дней</span></div>
+<div class="level-desc-row">Первые сценарии, простые триггеры и действия</div>
+<div class="level-row"><span class="level-badge lb-m">Средний</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:50%"></div></div><span class="level-time">3–4 недели</span></div>
+<div class="level-desc-row">Условия, фильтры, маршрутизация, AI интеграции</div>
+<div class="level-row"><span class="level-badge lb-p">Профи</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:75%"></div></div><span class="level-time">2–4 месяца</span></div>
+<div class="level-desc-row">Сложные мультишаговые пайплайны, обработка ошибок, вебхуки</div>
+</div>
+
+<div class="price-block">
+<div class="price-block-title">💰 Тарифы</div>
+<div class="price-row">
+<span class="price-plan">Бесплатно</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">1 000 операций/мес, 2 сценария</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Core</span>
+<span class="price-amount">$9/мес</span>
+<span class="price-desc">10 000 операций, неограниченно сценариев</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Pro</span>
+<span class="price-amount">$16/мес</span>
+<span class="price-desc">10 000+ операций, продвинутые инструменты</span>
+</div>
+</div><div class="card-footer"><span class="card-use">Лучший для: автоматизации</span><a class="card-link" href="https://make.com" target="_blank">make.com →</a></div>
+</div>
+<div class="card c-green">
+<div class="card-header"><div class="card-left"><div class="card-icon">🔧</div><div><div class="card-name">n8n</div><div class="card-company">n8n</div></div></div><div class="card-badges"><span class="badge badge-free">Бесплатно</span></div></div>
+<p class="card-desc">Make с открытым кодом. Поднимаешь на своём сервере — бесплатно и без лимитов. Можно писать JavaScript внутри сценариев. Популярен среди разработчиков. Railway + n8n = бесплатная автоматизация навсегда.</p>
+<div class="card-tags"><span class="tag">Открытый код</span><span class="tag">Self-hosted</span><span class="tag">JavaScript</span><span class="tag">Без лимитов</span></div>
+<div class="levels-block">
+<div class="levels-title">Уровни освоения</div>
+<div class="level-row"><span class="level-badge lb-b">Начальный</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:35%"></div></div><span class="level-time">4–7 дней</span></div>
+<div class="level-desc-row">Установка на Railway, первые воркфлоу, базовые ноды</div>
+<div class="level-row"><span class="level-badge lb-m">Средний</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:60%"></div></div><span class="level-time">1–2 месяца</span></div>
+<div class="level-desc-row">JavaScript ноды, вебхуки, AI агенты, сложные цепочки</div>
+<div class="level-row"><span class="level-badge lb-p">Профи</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:85%"></div></div><span class="level-time">3–6 месяцев</span></div>
+<div class="level-desc-row">Кастомные ноды, масштабирование, продакшн инфраструктура</div>
+</div>
+
+<div class="price-block">
+<div class="price-block-title">💰 Тарифы</div>
+<div class="price-row">
+<span class="price-plan">Self-hosted</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">Бесплатно на своём сервере, без лимитов</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Cloud Starter</span>
+<span class="price-amount">$24/мес</span>
+<span class="price-desc">5 активных воркфлоу, 2 500 выполнений</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Cloud Pro</span>
+<span class="price-amount">$60/мес</span>
+<span class="price-desc">15 активных воркфлоу, 10 000 выполнений</span>
+</div>
+</div><div class="card-footer"><span class="card-use">Лучший для: своего сервера</span><a class="card-link" href="https://n8n.io" target="_blank">n8n.io →</a></div>
+</div>
+</div>
+<!-- ПОИСК -->
+<div class="section-title" data-cat="search">🔍 Поиск</div>
+<div class="cards-grid" data-cat="search">
+<div class="card c-blue">
+<div class="card-header"><div class="card-left"><div class="card-icon">🔍</div><div><div class="card-name">Perplexity</div><div class="card-company">Perplexity AI</div></div></div><div class="card-badges"><span class="badge badge-partial">Частично</span></div></div>
+<p class="card-desc">AI-поисковик — замена Google. Задаёшь вопрос, ищет в интернете и даёт структурированный ответ с источниками. Актуальные данные — знает что происходит сегодня. Идеален для исследований и проверки фактов.</p>
+<div class="card-tags"><span class="tag">Актуальные данные</span><span class="tag">Источники</span><span class="tag">Исследования</span><span class="tag">Замена Google</span></div>
+<div class="levels-block">
+<div class="levels-title">Уровни освоения</div>
+<div class="level-row"><span class="level-badge lb-b">Начальный</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:8%"></div></div><span class="level-time">Пару часов</span></div>
+<div class="level-desc-row">Задаёшь вопросы как в Google — получаешь ответы с источниками</div>
+<div class="level-row"><span class="level-badge lb-m">Средний</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:25%"></div></div><span class="level-time">3–5 дней</span></div>
+<div class="level-desc-row">Spaces (тематические базы знаний), продвинутые запросы</div>
+<div class="level-row"><span class="level-badge lb-p">Профи</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:45%"></div></div><span class="level-time">2–3 недели</span></div>
+<div class="level-desc-row">API интеграция, автоматизация мониторинга, аналитика</div>
+</div>
+
+<div class="price-block">
+<div class="price-block-title">💰 Тарифы</div>
+<div class="price-row">
+<span class="price-plan">Бесплатно</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">Базовый поиск с AI</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Pro</span>
+<span class="price-amount">$20/мес</span>
+<span class="price-desc">GPT-4o / Claude, 300+ запросов в день</span>
+</div>
+<div class="price-row">
+<span class="price-plan">API</span>
+<span class="price-amount">от $5/1M токенов</span>
+<span class="price-desc">Sonar модели для интеграций</span>
+</div>
+</div><div class="card-footer"><span class="card-use">Лучший для: исследований</span><a class="card-link" href="https://perplexity.ai" target="_blank">perplexity.ai →</a></div>
+</div>
+</div>
+<!-- IDE И РЕДАКТОРЫ -->
+<div class="section-title" data-cat="ide">💻 IDE и редакторы для вайб-кодинга</div>
+<div class="cards-grid" data-cat="ide">
+<div class="card c-purple">
+<div class="card-header"><div class="card-left"><div class="card-icon">🖥️</div><div><div class="card-name">Cursor</div><div class="card-company">Anysphere</div></div></div><div class="card-badges"><span class="badge badge-partial">Частично</span></div></div>
+<p class="card-desc">Главный инструмент вайб-кодинга. Форк VS Code с AI прямо в редакторе. Agent-режим — описываешь задачу, он сам редактирует несколько файлов. Видит весь проект. Поддерживает Claude, GPT-4o, Gemini. Бесплатно 2000 запросов/месяц, потом $20/мес.</p>
+<div class="card-tags"><span class="tag">Agent-режим</span><span class="tag">Multi-file</span><span class="tag">Claude + GPT</span><span class="tag">MCP</span></div>
+<div class="levels-block">
+<div class="levels-title">Уровни освоения</div>
+<div class="level-row"><span class="level-badge lb-b">Начальный</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:20%"></div></div><span class="level-time">1–2 дня</span></div>
+<div class="level-desc-row">Установка, базовый чат, Tab-автодополнение</div>
+<div class="level-row"><span class="level-badge lb-m">Средний</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:45%"></div></div><span class="level-time">2–3 недели</span></div>
+<div class="level-desc-row">Agent-режим, .cursorrules, работа с проектом целиком</div>
+<div class="level-row"><span class="level-badge lb-p">Профи</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:70%"></div></div><span class="level-time">2–3 месяца</span></div>
+<div class="level-desc-row">MCP интеграции, кастомные правила, агентные пайплайны</div>
+</div>
+
+<div class="price-block">
+<div class="price-block-title">💰 Тарифы</div>
+<div class="price-row">
+<span class="price-plan">Hobby</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">2 000 запросов/мес, базовые функции</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Pro</span>
+<span class="price-amount">$20/мес</span>
+<span class="price-desc">Безлимит, быстрые ответы, GPT-4o/Claude</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Business</span>
+<span class="price-amount">$40/мес</span>
+<span class="price-desc">Командная работа, централизованное управление</span>
+</div>
+</div><div class="card-footer"><span class="card-use">Лучший для: вайб-кодинга</span><a class="card-link" href="https://cursor.com" target="_blank">cursor.com →</a></div>
+</div>
+<div class="card c-blue">
+<div class="card-header"><div class="card-left"><div class="card-icon">🔷</div><div><div class="card-name">Windsurf</div><div class="card-company">Codeium</div></div></div><div class="card-badges"><span class="badge badge-partial">Частично</span></div></div>
+<p class="card-desc">Конкурент Cursor от Codeium. Функция Cascade — AI-агент, который видит историю твоих действий и сам принимает решения. Часто быстрее Cursor и дешевле. Бесплатный план с лимитами. Хорош для новичков.</p>
+<div class="card-tags"><span class="tag">Cascade</span><span class="tag">История действий</span><span class="tag">Бесплатно</span><span class="tag">Агент</span></div>
+<div class="levels-block">
+<div class="levels-title">Уровни освоения</div>
+<div class="level-row"><span class="level-badge lb-b">Начальный</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:15%"></div></div><span class="level-time">1 день</span></div>
+<div class="level-desc-row">Установка, первый проект, Cascade чат</div>
+<div class="level-row"><span class="level-badge lb-m">Средний</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:40%"></div></div><span class="level-time">1–2 недели</span></div>
+<div class="level-desc-row">Cascade для редактирования файлов, настройки AI модели</div>
+<div class="level-row"><span class="level-badge lb-p">Профи</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:65%"></div></div><span class="level-time">1–2 месяца</span></div>
+<div class="level-desc-row">Кастомные правила, интеграции, продакшн разработка</div>
+</div>
+
+<div class="price-block">
+<div class="price-block-title">💰 Тарифы</div>
+<div class="price-row">
+<span class="price-plan">Бесплатно</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">Базовые функции, лимит кредитов</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Pro</span>
+<span class="price-amount">$15/мес</span>
+<span class="price-desc">Безлимит Cascade, Claude + GPT-4o</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Teams</span>
+<span class="price-amount">$35/мес</span>
+<span class="price-desc">Командная работа, администрирование</span>
+</div>
+</div><div class="card-footer"><span class="card-use">Лучший для: новичков</span><a class="card-link" href="https://windsurf.com" target="_blank">windsurf.com →</a></div>
+</div>
+<div class="card c-blue">
+<div class="card-header"><div class="card-left"><div class="card-icon">🔵</div><div><div class="card-name">VS Code + Continue</div><div class="card-company">Microsoft / Continue.dev</div></div></div><div class="card-badges"><span class="badge badge-free">Бесплатно</span></div></div>
+<p class="card-desc">Классический VS Code с бесплатным AI-расширением Continue.dev. Подключаешь любую модель — Claude, GPT, Ollama (локально). Полный контроль и гибкость. Идеален если не хочешь платить за Cursor. Работает с любым AI API.</p>
+<div class="card-tags"><span class="tag">Бесплатно</span><span class="tag">Любой AI</span><span class="tag">Ollama</span><span class="tag">Гибкость</span></div>
+<div class="levels-block">
+<div class="levels-title">Уровни освоения</div>
+<div class="level-row"><span class="level-badge lb-b">Начальный</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:20%"></div></div><span class="level-time">2–3 дня</span></div>
+<div class="level-desc-row">Установка Continue, подключение API ключа, чат с кодом</div>
+<div class="level-row"><span class="level-badge lb-m">Средний</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:45%"></div></div><span class="level-time">2–3 недели</span></div>
+<div class="level-desc-row">Настройка разных моделей, автодополнение, контекст проекта</div>
+<div class="level-row"><span class="level-badge lb-p">Профи</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:70%"></div></div><span class="level-time">1–2 месяца</span></div>
+<div class="level-desc-row">Кастомные промпты, RAG по проекту, локальные модели</div>
+</div>
+
+<div class="price-block">
+<div class="price-block-title">💰 Тарифы</div>
+<div class="price-row">
+<span class="price-plan">Полностью бесплатно</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">VS Code + расширение Continue — ничего не платишь</span>
+</div>
+<div class="price-row">
+<span class="price-plan">API ключи</span>
+<span class="price-amount">по тарифу модели</span>
+<span class="price-desc">Платишь только за Claude/GPT API если используешь</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Ollama</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">Локальные модели — полный ноль</span>
+</div>
+</div><div class="card-footer"><span class="card-use">Лучший для: гибкости</span><a class="card-link" href="https://continue.dev" target="_blank">continue.dev →</a></div>
+</div>
+<div class="card c-teal">
+<div class="card-header"><div class="card-left"><div class="card-icon">⚡</div><div><div class="card-name">Zed</div><div class="card-company">Zed Industries</div></div></div><div class="card-badges"><span class="badge badge-free">Бесплатно</span></div></div>
+<p class="card-desc">Сверхбыстрый редактор на Rust. AI встроен нативно — Zed AI с Claude. Открытый код. В 5–10 раз быстрее VS Code по скорости отклика. Мультиплеер — несколько человек редактируют файл одновременно как Google Docs.</p>
+<div class="card-tags"><span class="tag">Rust</span><span class="tag">Мультиплеер</span><span class="tag">Сверхбыстрый</span><span class="tag">Claude</span></div>
+<div class="levels-block">
+<div class="levels-title">Уровни освоения</div>
+<div class="level-row"><span class="level-badge lb-b">Начальный</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:25%"></div></div><span class="level-time">2–3 дня</span></div>
+<div class="level-desc-row">Установка (macOS/Linux), базовые команды, AI чат</div>
+<div class="level-row"><span class="level-badge lb-m">Средний</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:50%"></div></div><span class="level-time">1–2 недели</span></div>
+<div class="level-desc-row">Мультиплеер, настройка AI, кастомные горячие клавиши</div>
+<div class="level-row"><span class="level-badge lb-p">Профи</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:75%"></div></div><span class="level-time">1–2 месяца</span></div>
+<div class="level-desc-row">Расширения, продакшн рабочий процесс, совместная разработка</div>
+</div>
+
+<div class="price-block">
+<div class="price-block-title">💰 Тарифы</div>
+<div class="price-row">
+<span class="price-plan">Бесплатно</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">Редактор полностью бесплатен</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Zed AI</span>
+<span class="price-amount">150 запросов/мес бесплатно</span>
+<span class="price-desc">После — $10/мес или свой API ключ</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Свой API</span>
+<span class="price-amount">по тарифу</span>
+<span class="price-desc">Подключи Claude/GPT — платишь только за токены</span>
+</div>
+</div><div class="card-footer"><span class="card-use">Лучший для: скорости</span><a class="card-link" href="https://zed.dev" target="_blank">zed.dev →</a></div>
+</div>
+<div class="card c-orange">
+<div class="card-header"><div class="card-left"><div class="card-icon">🌊</div><div><div class="card-name">Trae</div><div class="card-company">ByteDance</div></div></div><div class="card-badges"><span class="badge badge-free">Бесплатно</span></div></div>
+<p class="card-desc">AI-редактор от ByteDance (создатели TikTok). Полностью бесплатный, без лимитов на AI запросы. Claude Sonnet 3.7 и GPT-4o доступны бесплатно. Аналог Cursor, но даром. Хорош для тех, кто хочет всё сразу и не платить.</p>
+<div class="card-tags"><span class="tag">Полностью бесплатно</span><span class="tag">Claude бесплатно</span><span class="tag">ByteDance</span><span class="tag">Без лимитов</span></div>
+<div class="levels-block">
+<div class="levels-title">Уровни освоения</div>
+<div class="level-row"><span class="level-badge lb-b">Начальный</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:15%"></div></div><span class="level-time">1 день</span></div>
+<div class="level-desc-row">Скачать, установить, начать чат — всё интуитивно</div>
+<div class="level-row"><span class="level-badge lb-m">Средний</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:35%"></div></div><span class="level-time">1 неделя</span></div>
+<div class="level-desc-row">Agent-режим, работа с файлами, выбор моделей</div>
+<div class="level-row"><span class="level-badge lb-p">Профи</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:60%"></div></div><span class="level-time">3–4 недели</span></div>
+<div class="level-desc-row">Кастомные настройки, интеграция в рабочий процесс</div>
+</div>
+
+<div class="price-block">
+<div class="price-block-title">💰 Тарифы</div>
+<div class="price-row">
+<span class="price-plan">Полностью бесплатно</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">Claude Sonnet + GPT-4o без оплаты</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Без лимитов</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">ByteDance субсидирует стоимость моделей</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Навсегда?</span>
+<span class="price-amount">пока 0 ₽</span>
+<span class="price-desc">Условия могут измениться в будущем</span>
+</div>
+</div><div class="card-footer"><span class="card-use">Лучший для: бесплатного старта</span><a class="card-link" href="https://trae.ai" target="_blank">trae.ai →</a></div>
+</div>
+<div class="card c-green">
+<div class="card-header"><div class="card-left"><div class="card-icon">🔮</div><div><div class="card-name">Bolt.new</div><div class="card-company">StackBlitz</div></div></div><div class="card-badges"><span class="badge badge-partial">Частично</span></div></div>
+<p class="card-desc">Веб-IDE для вайб-кодинга прямо в браузере. Описываешь приложение — генерирует полный проект. Сразу запускает и деплоит. Не нужен ничего устанавливать. Идеален для быстрых прототипов. Поддерживает React, Vue, Node.js.</p>
+<div class="card-tags"><span class="tag">Браузер</span><span class="tag">Без установки</span><span class="tag">Прототипы</span><span class="tag">Деплой</span></div>
+<div class="levels-block">
+<div class="levels-title">Уровни освоения</div>
+<div class="level-row"><span class="level-badge lb-b">Начальный</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:8%"></div></div><span class="level-time">Пару часов</span></div>
+<div class="level-desc-row">Описываешь что нужно — получаешь рабочий проект</div>
+<div class="level-row"><span class="level-badge lb-m">Средний</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:30%"></div></div><span class="level-time">3–5 дней</span></div>
+<div class="level-desc-row">Итеративные правки, подключение API, деплой на Netlify</div>
+<div class="level-row"><span class="level-badge lb-p">Профи</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:55%"></div></div><span class="level-time">2–4 недели</span></div>
+<div class="level-desc-row">Полноценные MVP, кастомные зависимости, продакшн</div>
+</div>
+
+<div class="price-block">
+<div class="price-block-title">💰 Тарифы</div>
+<div class="price-row">
+<span class="price-plan">Бесплатно</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">150 000 токенов/день</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Basic</span>
+<span class="price-amount">$20/мес</span>
+<span class="price-desc">10 000 000 токенов/мес</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Pro</span>
+<span class="price-amount">$50/мес</span>
+<span class="price-desc">Безлимит токенов, приоритет</span>
+</div>
+</div><div class="card-footer"><span class="card-use">Лучший для: прототипов</span><a class="card-link" href="https://bolt.new" target="_blank">bolt.new →</a></div>
+</div>
+<div class="card c-pink">
+<div class="card-header"><div class="card-left"><div class="card-icon">❤️</div><div><div class="card-name">Lovable</div><div class="card-company">Lovable</div></div></div><div class="card-badges"><span class="badge badge-partial">Частично</span></div></div>
+<p class="card-desc">Генератор веб-приложений из промпта. Специализируется на красивом UI — Tailwind, Shadcn/ui из коробки. Синхронизируется с GitHub. Деплоит на свой домен. Бесплатно 5 проектов. Лучший для landing page и SaaS MVP.</p>
+<div class="card-tags"><span class="tag">Красивый UI</span><span class="tag">GitHub Sync</span><span class="tag">SaaS</span><span class="tag">Landing</span></div>
+<div class="levels-block">
+<div class="levels-title">Уровни освоения</div>
+<div class="level-row"><span class="level-badge lb-b">Начальный</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:10%"></div></div><span class="level-time">Пару часов</span></div>
+<div class="level-desc-row">Описываешь дизайн и функционал — получаешь готовый сайт</div>
+<div class="level-row"><span class="level-badge lb-m">Средний</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:30%"></div></div><span class="level-time">3–7 дней</span></div>
+<div class="level-desc-row">Supabase интеграция, auth, база данных, кастомизация</div>
+<div class="level-row"><span class="level-badge lb-p">Профи</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:55%"></div></div><span class="level-time">2–4 недели</span></div>
+<div class="level-desc-row">Полноценный SaaS, платёжные интеграции, продакшн</div>
+</div>
+
+<div class="price-block">
+<div class="price-block-title">💰 Тарифы</div>
+<div class="price-row">
+<span class="price-plan">Бесплатно</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">5 проектов, базовые функции</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Starter</span>
+<span class="price-amount">$20/мес</span>
+<span class="price-desc">Неограниченные проекты, кастомный домен</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Launch</span>
+<span class="price-amount">$50/мес</span>
+<span class="price-desc">Команда, приоритет, расширенный функционал</span>
+</div>
+</div><div class="card-footer"><span class="card-use">Лучший для: лендингов и SaaS</span><a class="card-link" href="https://lovable.dev" target="_blank">lovable.dev →</a></div>
+</div>
+<div class="card c-blue">
+<div class="card-header"><div class="card-left"><div class="card-icon">🔺</div><div><div class="card-name">v0 by Vercel</div><div class="card-company">Vercel</div></div></div><div class="card-badges"><span class="badge badge-partial">Частично</span></div></div>
+<p class="card-desc">Генератор UI-компонентов от Vercel. Описываешь — получаешь готовый React/Tailwind код. Специализируется на красивых компонентах с shadcn/ui. Один клик — деплой на Vercel. Бесплатный план с ежедневными кредитами.</p>
+<div class="card-tags"><span class="tag">React</span><span class="tag">Tailwind</span><span class="tag">shadcn/ui</span><span class="tag">Vercel</span></div>
+<div class="levels-block">
+<div class="levels-title">Уровни освоения</div>
+<div class="level-row"><span class="level-badge lb-b">Начальный</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:8%"></div></div><span class="level-time">Пару часов</span></div>
+<div class="level-desc-row">Описываешь компонент — копируешь код в проект</div>
+<div class="level-row"><span class="level-badge lb-m">Средний</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:25%"></div></div><span class="level-time">3–5 дней</span></div>
+<div class="level-desc-row">Итеративные улучшения, деплой на Vercel, полные страницы</div>
+<div class="level-row"><span class="level-badge lb-p">Профи</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:50%"></div></div><span class="level-time">2–3 недели</span></div>
+<div class="level-desc-row">Дизайн-системы, экспорт в Next.js проект, кастомные темы</div>
+</div>
+
+<div class="price-block">
+<div class="price-block-title">💰 Тарифы</div>
+<div class="price-row">
+<span class="price-plan">Бесплатно</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">200 кредитов/мес</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Premium</span>
+<span class="price-amount">$20/мес</span>
+<span class="price-desc">5 000 кредитов/мес</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Team</span>
+<span class="price-amount">$30/мес</span>
+<span class="price-desc">Командные функции, общий баланс</span>
+</div>
+</div><div class="card-footer"><span class="card-use">Лучший для: UI компонентов</span><a class="card-link" href="https://v0.dev" target="_blank">v0.dev →</a></div>
+</div>
+<div class="card c-green">
+<div class="card-header"><div class="card-left"><div class="card-icon">🖥️</div><div><div class="card-name">Claude Code</div><div class="card-company">Anthropic</div></div></div><div class="card-badges"><span class="badge badge-partial">Частично</span></div></div>
+<p class="card-desc">AI-агент для терминала от Anthropic. Запускаешь в папке проекта — он сам читает файлы, пишет код, запускает команды. Работает в любом терминале. Самый мощный агент для полной автоматизации разработки.</p>
+<div class="card-tags"><span class="tag">Терминал</span><span class="tag">Агент</span><span class="tag">Anthropic</span><span class="tag">Автономно</span></div>
+<div class="levels-block">
+<div class="levels-title">Уровни освоения</div>
+<div class="level-row"><span class="level-badge lb-b">Начальный</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:25%"></div></div><span class="level-time">1–2 дня</span></div>
+<div class="level-desc-row"><code>npm install -g @anthropic-ai/claude-code</code> → запуск в проекте</div>
+<div class="level-row"><span class="level-badge lb-m">Средний</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:50%"></div></div><span class="level-time">2–3 недели</span></div>
+<div class="level-desc-row">Автономные задачи, работа с Git, CI/CD интеграция</div>
+<div class="level-row"><span class="level-badge lb-p">Профи</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:80%"></div></div><span class="level-time">2–3 месяца</span></div>
+<div class="level-desc-row">Кастомные CLAUDE.md инструкции, MCP серверы, агентные пайплайны</div>
+</div>
+
+<div class="price-block">
+<div class="price-block-title">💰 Тарифы</div>
+<div class="price-row">
+<span class="price-plan">API Claude</span>
+<span class="price-amount">от $3/1M токенов</span>
+<span class="price-desc">Платишь только за токены модели</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Claude Pro</span>
+<span class="price-amount">$20/мес</span>
+<span class="price-desc">Включены лимиты на claude.ai (не API)</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Claude Max</span>
+<span class="price-amount">$100–200/мес</span>
+<span class="price-desc">Максимальные лимиты для интенсивной работы</span>
+</div>
+</div><div class="card-footer"><span class="card-use">Лучший для: терминала</span><a class="card-link" href="https://docs.anthropic.com/claude-code" target="_blank">docs.anthropic.com →</a></div>
+</div>
+<div class="card c-orange">
+<div class="card-header"><div class="card-left"><div class="card-icon">🤖</div><div><div class="card-name">Aider</div><div class="card-company">Paul Gauthier</div></div></div><div class="card-badges"><span class="badge badge-free">Бесплатно</span></div></div>
+<p class="card-desc">Open-source CLI-агент для вайб-кодинга в терминале. Работает с любым Git-репозиторием. Поддерживает Claude, GPT, Gemini, локальные модели через Ollama. Сам делает коммиты с понятными сообщениями. Очень популярен среди разработчиков.</p>
+<div class="card-tags"><span class="tag">Open-source</span><span class="tag">Git коммиты</span><span class="tag">Любая модель</span><span class="tag">Терминал</span></div>
+<div class="levels-block">
+<div class="levels-title">Уровни освоения</div>
+<div class="level-row"><span class="level-badge lb-b">Начальный</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:30%"></div></div><span class="level-time">2–3 дня</span></div>
+<div class="level-desc-row"><code>pip install aider-chat</code> → aider в папке проекта</div>
+<div class="level-row"><span class="level-badge lb-m">Средний</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:55%"></div></div><span class="level-time">2–4 недели</span></div>
+<div class="level-desc-row">Контекст файлов, режимы architect/editor, настройка моделей</div>
+<div class="level-row"><span class="level-badge lb-p">Профи</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:80%"></div></div><span class="level-time">2–3 месяца</span></div>
+<div class="level-desc-row">CI интеграция, кастомные конфиги, сложные рефакторинги</div>
+</div>
+
+<div class="price-block">
+<div class="price-block-title">💰 Тарифы</div>
+<div class="price-row">
+<span class="price-plan">Бесплатно</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">Open-source — сам инструмент бесплатный</span>
+</div>
+<div class="price-row">
+<span class="price-plan">API ключи</span>
+<span class="price-amount">по тарифу модели</span>
+<span class="price-desc">Платишь за Claude/GPT/Gemini API</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Ollama</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">Локальные модели — полностью бесплатно</span>
+</div>
+</div><div class="card-footer"><span class="card-use">Лучший для: Git-проектов</span><a class="card-link" href="https://aider.chat" target="_blank">aider.chat →</a></div>
+</div>
+<div class="card c-blue" style="--card-accent:#4285f4; --card-accent-bg:rgba(66,133,244,0.12); --card-accent-border:rgba(66,133,244,0.3);">
+<div class="card-header"><div class="card-left"><div class="card-icon">🚀</div><div><div class="card-name">Google Antigravity</div><div class="card-company">Google</div></div></div><div class="card-badges"><span class="badge badge-free">Бесплатно</span></div></div>
+<p class="card-desc">Agent-first IDE от Google, вышел в ноябре 2025 вместе с Gemini 3. Несколько AI-агентов работают параллельно — один пишет код, другой тестирует в встроенном браузере, третий выполняет команды в терминале. Ты — архитектор, агенты — исполнители. Бесплатно для личных аккаунтов с щедрыми лимитами.</p>
+<div class="card-tags"><span class="tag">Мультиагент</span><span class="tag">Встроенный браузер</span><span class="tag">Gemini 3 + Claude</span><span class="tag">Бесплатно</span></div>
+<div class="levels-block">
+<div class="levels-title">Установка и освоение</div>
+<div class="level-row"><span class="level-badge lb-b">Установка</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:15%"></div></div><span class="level-time">30 минут</span></div>
+<div class="level-desc-row">antigravity.google/download → установить → войти Gmail → выбрать модель</div>
+<div class="level-row"><span class="level-badge lb-m">Средний</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:40%"></div></div><span class="level-time">1–2 недели</span></div>
+<div class="level-desc-row">Agent Manager, Plan Mode vs Fast Mode, Artifacts, правила агента</div>
+<div class="level-row"><span class="level-badge lb-p">Профи</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:70%"></div></div><span class="level-time">1–2 месяца</span></div>
+<div class="level-desc-row">Параллельные агенты, кастомные правила, сложные мультишаговые задачи</div>
+</div>
+
+<div class="price-block">
+<div class="price-block-title">💰 Тарифы</div>
+<div class="price-row">
+<span class="price-plan">Бесплатно (превью)</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">Щедрые лимиты на Gemini 3 Pro</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Будущие планы</span>
+<span class="price-amount">не анонсировано</span>
+<span class="price-desc">Платные тарифы в разработке</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Свой API</span>
+<span class="price-amount">по тарифу</span>
+<span class="price-desc">Поддержка Claude и GPT — платишь за токены</span>
+</div>
+</div><div class="card-footer"><span class="card-use">Лучший для: агентной разработки</span><a class="card-link" href="https://antigravity.google/download" target="_blank">antigravity.google →</a></div>
+</div>
+<div class="card c-green">
+<div class="card-header"><div class="card-left"><div class="card-icon">🌐</div><div><div class="card-name">Replit</div><div class="card-company">Replit</div></div></div><div class="card-badges"><span class="badge badge-partial">Частично</span></div></div>
+<p class="card-desc">Облачная IDE с AI агентом. Пишет и запускает код прямо в браузере без установки. Replit AI Agent — создаёт полные приложения из описания. Бесплатный план. Хорош для обучения и быстрых экспериментов.</p>
+<div class="card-tags"><span class="tag">Браузер</span><span class="tag">Без установки</span><span class="tag">Обучение</span><span class="tag">AI Агент</span></div>
+<div class="levels-block">
+<div class="levels-title">Уровни освоения</div>
+<div class="level-row"><span class="level-badge lb-b">Начальный</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:8%"></div></div><span class="level-time">Пару часов</span></div>
+<div class="level-desc-row">Регистрация, выбор языка, первый проект</div>
+<div class="level-row"><span class="level-badge lb-m">Средний</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:30%"></div></div><span class="level-time">1–2 недели</span></div>
+<div class="level-desc-row">AI Agent для генерации проектов, деплой, база данных</div>
+<div class="level-row"><span class="level-badge lb-p">Профи</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:55%"></div></div><span class="level-time">1–2 месяца</span></div>
+<div class="level-desc-row">Secrets, кастомные домены, командная работа</div>
+</div>
+
+<div class="price-block">
+<div class="price-block-title">💰 Тарифы</div>
+<div class="price-row">
+<span class="price-plan">Бесплатно</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">Базовые проекты, лимитированный AI</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Core</span>
+<span class="price-amount">$25/мес</span>
+<span class="price-desc">Полный AI Agent, больше ресурсов</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Teams</span>
+<span class="price-amount">$40/мес</span>
+<span class="price-desc">Командная работа, приватные репо</span>
+</div>
+</div><div class="card-footer"><span class="card-use">Лучший для: обучения</span><a class="card-link" href="https://replit.com" target="_blank">replit.com →</a></div>
+</div>
+</div>
+<!-- ДЕПЛОЙ И ХОСТИНГ -->
+<div class="section-title" data-cat="deploy">🚀 Деплой и бесплатный хостинг</div>
+<div class="cards-grid" data-cat="deploy">
+<div class="card c-teal">
+<div class="card-header"><div class="card-left"><div class="card-icon">🌿</div><div><div class="card-name">Netlify</div><div class="card-company">Netlify</div></div></div><div class="card-badges"><span class="badge badge-free">Бесплатно</span></div></div>
+<p class="card-desc">Самый простой деплой для статических сайтов и фронтенда. Подключаешь GitHub — любой пуш автоматически деплоит сайт. Бесплатно: 100GB трафика, 300 минут сборки/мес. Бесплатный HTTPS и поддомен yoursite.netlify.app. Идеален для вайб-кодинга.</p>
+<div class="card-tags"><span class="tag">GitHub деплой</span><span class="tag">Автодеплой</span><span class="tag">HTTPS</span><span class="tag">Serverless</span></div>
+<div class="levels-block">
+<div class="levels-title">Уровни освоения</div>
+<div class="level-row"><span class="level-badge lb-b">Начальный</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:5%"></div></div><span class="level-time">30 минут</span></div>
+<div class="level-desc-row">Drag &amp; drop папки — сайт онлайн. Или подключаешь GitHub</div>
+<div class="level-row"><span class="level-badge lb-m">Средний</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:20%"></div></div><span class="level-time">1–2 дня</span></div>
+<div class="level-desc-row">Env переменные, кастомный домен, редиректы, формы</div>
+<div class="level-row"><span class="level-badge lb-p">Профи</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:45%"></div></div><span class="level-time">1–2 недели</span></div>
+<div class="level-desc-row">Edge Functions, Netlify DB, A/B тесты, аналитика</div>
+</div>
+
+<div class="price-block">
+<div class="price-block-title">💰 Тарифы</div>
+<div class="price-row">
+<span class="price-plan">Бесплатно</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">100GB трафик, 300 мин сборки/мес</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Pro</span>
+<span class="price-amount">$19/мес</span>
+<span class="price-desc">1TB трафик, 25 000 мин сборки</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Business</span>
+<span class="price-amount">$99/мес</span>
+<span class="price-desc">Неограниченно, SSO, SLA 99.99%</span>
+</div>
+</div><div class="card-footer"><span class="card-use">Лучший для: быстрого деплоя</span><a class="card-link" href="https://netlify.com" target="_blank">netlify.com →</a></div>
+</div>
+<div class="card c-blue">
+<div class="card-header"><div class="card-left"><div class="card-icon">🔺</div><div><div class="card-name">Vercel</div><div class="card-company">Vercel</div></div></div><div class="card-badges"><span class="badge badge-free">Бесплатно</span></div></div>
+<p class="card-desc">Лучший хостинг для Next.js и React. Разработан командой Next.js. Бесплатно: неограниченные проекты, 100GB трафика. Автодеплой из GitHub. Edge Network — сайт быстро загружается по всему миру. Поддомен yoursite.vercel.app.</p>
+<div class="card-tags"><span class="tag">Next.js</span><span class="tag">Edge Network</span><span class="tag">Неограниченно</span><span class="tag">Preview URL</span></div>
+<div class="levels-block">
+<div class="levels-title">Уровни освоения</div>
+<div class="level-row"><span class="level-badge lb-b">Начальный</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:5%"></div></div><span class="level-time">30 минут</span></div>
+<div class="level-desc-row">Подключаешь GitHub, выбираешь репозиторий — деплоится сам</div>
+<div class="level-row"><span class="level-badge lb-m">Средний</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:25%"></div></div><span class="level-time">2–3 дня</span></div>
+<div class="level-desc-row">Env переменные, кастомный домен, Preview Deployments</div>
+<div class="level-row"><span class="level-badge lb-p">Профи</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:50%"></div></div><span class="level-time">1–2 недели</span></div>
+<div class="level-desc-row">Edge Functions, Vercel KV/Blob, Analytics, ISR</div>
+</div>
+
+<div class="price-block">
+<div class="price-block-title">💰 Тарифы</div>
+<div class="price-row">
+<span class="price-plan">Бесплатно</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">100GB трафик, неограниченные проекты</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Pro</span>
+<span class="price-amount">$20/мес</span>
+<span class="price-desc">1TB трафик, бизнес-функции</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Enterprise</span>
+<span class="price-amount">по запросу</span>
+<span class="price-desc">SLA, кастомные условия</span>
+</div>
+</div><div class="card-footer"><span class="card-use">Лучший для: Next.js</span><a class="card-link" href="https://vercel.com" target="_blank">vercel.com →</a></div>
+</div>
+<div class="card c-purple">
+<div class="card-header"><div class="card-left"><div class="card-icon">🐙</div><div><div class="card-name">GitHub Pages</div><div class="card-company">Microsoft / GitHub</div></div></div><div class="card-badges"><span class="badge badge-free">Бесплатно</span></div></div>
+<p class="card-desc">Бесплатный хостинг прямо из GitHub-репозитория. Идеален для портфолио, документации, статических сайтов. Бесплатно навсегда без лимитов трафика. Адрес: username.github.io/repo. Поддерживает Jekyll. Подключи свой домен бесплатно.</p>
+<div class="card-tags"><span class="tag">GitHub</span><span class="tag">Бесплатно всегда</span><span class="tag">Портфолио</span><span class="tag">Jekyll</span></div>
+<div class="levels-block">
+<div class="levels-title">Уровни освоения</div>
+<div class="level-row"><span class="level-badge lb-b">Начальный</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:10%"></div></div><span class="level-time">1 час</span></div>
+<div class="level-desc-row">Settings → Pages → выбрать ветку — готово</div>
+<div class="level-row"><span class="level-badge lb-m">Средний</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:25%"></div></div><span class="level-time">2–3 дня</span></div>
+<div class="level-desc-row">GitHub Actions для автосборки, кастомный домен, HTTPS</div>
+<div class="level-row"><span class="level-badge lb-p">Профи</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:40%"></div></div><span class="level-time">1 неделя</span></div>
+<div class="level-desc-row">Сложные CI/CD пайплайны, Jekyll темы, оптимизация</div>
+</div>
+
+<div class="price-block">
+<div class="price-block-title">💰 Тарифы</div>
+<div class="price-row">
+<span class="price-plan">Бесплатно всегда</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">Бесплатно для публичных репо</span>
+</div>
+<div class="price-row">
+<span class="price-plan">GitHub Pro</span>
+<span class="price-amount">$4/мес</span>
+<span class="price-desc">Приватные репо с Pages</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Ограничения</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">1GB диск, 100GB трафик/мес — хватает</span>
+</div>
+</div><div class="card-footer"><span class="card-use">Лучший для: портфолио</span><a class="card-link" href="https://pages.github.com" target="_blank">pages.github.com →</a></div>
+</div>
+<div class="card c-orange">
+<div class="card-header"><div class="card-left"><div class="card-icon">🚂</div><div><div class="card-name">Railway</div><div class="card-company">Railway</div></div></div><div class="card-badges"><span class="badge badge-partial">Частично</span></div></div>
+<p class="card-desc">Хостинг для полноценных приложений с бэкендом. Node.js, Python, Go, Docker — всё работает. База данных PostgreSQL из коробки. Бесплатно $5 кредитов при регистрации. Деплой одной командой railway up. Идеален для бэкенда и n8n.</p>
+<div class="card-tags"><span class="tag">Бэкенд</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span><span class="tag">railway up</span></div>
+<div class="levels-block">
+<div class="levels-title">Уровни освоения</div>
+<div class="level-row"><span class="level-badge lb-b">Начальный</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:20%"></div></div><span class="level-time">1–2 дня</span></div>
+<div class="level-desc-row">Создать проект, деплоить из GitHub, посмотреть логи</div>
+<div class="level-row"><span class="level-badge lb-m">Средний</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:40%"></div></div><span class="level-time">1–2 недели</span></div>
+<div class="level-desc-row">PostgreSQL, Redis, Env переменные, кастомный домен</div>
+<div class="level-row"><span class="level-badge lb-p">Профи</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:65%"></div></div><span class="level-time">1–2 месяца</span></div>
+<div class="level-desc-row">Мультисервисные проекты, CLI, авто-масштабирование</div>
+</div>
+
+<div class="price-block">
+<div class="price-block-title">💰 Тарифы</div>
+<div class="price-row">
+<span class="price-plan">Starter</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">$5 кредитов при регистрации</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Hobby</span>
+<span class="price-amount">$5/мес</span>
+<span class="price-desc">$5 кредитов + оплата сверх использования</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Pro</span>
+<span class="price-amount">$20/мес</span>
+<span class="price-desc">$20 кредитов, команда, приоритет</span>
+</div>
+</div><div class="card-footer"><span class="card-use">Лучший для: бэкенда и n8n</span><a class="card-link" href="https://railway.app" target="_blank">railway.app →</a></div>
+</div>
+<div class="card c-green">
+<div class="card-header"><div class="card-left"><div class="card-icon">🌀</div><div><div class="card-name">Render</div><div class="card-company">Render</div></div></div><div class="card-badges"><span class="badge badge-free">Бесплатно</span></div></div>
+<p class="card-desc">Альтернатива Railway с более щедрым бесплатным планом. Web Services, Static Sites, Cron Jobs, PostgreSQL — всё бесплатно с лимитами. Автодеплой из GitHub. Подходит для Flask, FastAPI, Express. Сайт засыпает через 15 мин бездействия (бесплатно).</p>
+<div class="card-tags"><span class="tag">Flask/FastAPI</span><span class="tag">Cron Jobs</span><span class="tag">PostgreSQL</span><span class="tag">Auto-deploy</span></div>
+<div class="levels-block">
+<div class="levels-title">Уровни освоения</div>
+<div class="level-row"><span class="level-badge lb-b">Начальный</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:15%"></div></div><span class="level-time">1 день</span></div>
+<div class="level-desc-row">Подключить GitHub, выбрать тип сервиса, задать команду старта</div>
+<div class="level-row"><span class="level-badge lb-m">Средний</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:35%"></div></div><span class="level-time">3–5 дней</span></div>
+<div class="level-desc-row">Переменные окружения, PostgreSQL, кастомный домен</div>
+<div class="level-row"><span class="level-badge lb-p">Профи</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:60%"></div></div><span class="level-time">2–3 недели</span></div>
+<div class="level-desc-row">Private Services, Blueprints (инфраструктура как код)</div>
+</div>
+
+<div class="price-block">
+<div class="price-block-title">💰 Тарифы</div>
+<div class="price-row">
+<span class="price-plan">Бесплатно</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">Web Services засыпает, PostgreSQL 90 дней</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Individual</span>
+<span class="price-amount">$19/мес</span>
+<span class="price-desc">Сервисы не засыпают, больше ресурсов</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Team</span>
+<span class="price-amount">$29/мес</span>
+<span class="price-desc">Несколько участников, расширенный функционал</span>
+</div>
+</div><div class="card-footer"><span class="card-use">Лучший для: Python-бэкенда</span><a class="card-link" href="https://render.com" target="_blank">render.com →</a></div>
+</div>
+<div class="card c-teal">
+<div class="card-header"><div class="card-left"><div class="card-icon">🌩️</div><div><div class="card-name">Cloudflare Pages</div><div class="card-company">Cloudflare</div></div></div><div class="card-badges"><span class="badge badge-free">Бесплатно</span></div></div>
+<p class="card-desc">Самый быстрый хостинг для статических сайтов. Edge-сеть в 270+ городах — сайт грузится молниеносно. Бесплатно: неограниченные сайты, запросы и полоса пропускания. Workers для серверной логики. Лучший выбор для скорости.</p>
+<div class="card-tags"><span class="tag">Edge 270+ городов</span><span class="tag">Неограниченно</span><span class="tag">Workers</span><span class="tag">Максимальная скорость</span></div>
+<div class="levels-block">
+<div class="levels-title">Уровни освоения</div>
+<div class="level-row"><span class="level-badge lb-b">Начальный</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:8%"></div></div><span class="level-time">30 минут</span></div>
+<div class="level-desc-row">Подключить GitHub → автодеплой, поддомен .pages.dev</div>
+<div class="level-row"><span class="level-badge lb-m">Средний</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:25%"></div></div><span class="level-time">2–3 дня</span></div>
+<div class="level-desc-row">Кастомный домен, Workers, KV Storage, переменные</div>
+<div class="level-row"><span class="level-badge lb-p">Профи</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:55%"></div></div><span class="level-time">2–4 недели</span></div>
+<div class="level-desc-row">D1 Database, R2 Storage, Durable Objects, полный edge-стек</div>
+</div>
+
+<div class="price-block">
+<div class="price-block-title">💰 Тарифы</div>
+<div class="price-row">
+<span class="price-plan">Бесплатно всегда</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">Неограниченные сайты, запросы и трафик</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Pro</span>
+<span class="price-amount">$20/мес</span>
+<span class="price-desc">Расширенная защита, аналитика</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Workers</span>
+<span class="price-amount">от $5/мес</span>
+<span class="price-desc">Edge Functions + KV + D1 Database</span>
+</div>
+</div><div class="card-footer"><span class="card-use">Лучший для: скорости</span><a class="card-link" href="https://pages.cloudflare.com" target="_blank">pages.cloudflare.com →</a></div>
+</div>
+<div class="card c-green">
+<div class="card-header"><div class="card-left"><div class="card-icon">⚡</div><div><div class="card-name">Supabase</div><div class="card-company">Supabase</div></div></div><div class="card-badges"><span class="badge badge-free">Бесплатно</span></div></div>
+<p class="card-desc">Open-source альтернатива Firebase. PostgreSQL + Auth + Storage + Realtime + Edge Functions в одном. Бесплатно 2 проекта, 500MB БД, 1GB Storage. Идеален как бэкенд для Lovable, Bolt.new. Один клик — готовый API для твоей БД.</p>
+<div class="card-tags"><span class="tag">PostgreSQL</span><span class="tag">Auth</span><span class="tag">Realtime</span><span class="tag">Open-source</span></div>
+<div class="levels-block">
+<div class="levels-title">Уровни освоения</div>
+<div class="level-row"><span class="level-badge lb-b">Начальный</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:15%"></div></div><span class="level-time">1–2 дня</span></div>
+<div class="level-desc-row">Создать проект, таблицу, подключить в приложении</div>
+<div class="level-row"><span class="level-badge lb-m">Средний</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:40%"></div></div><span class="level-time">1–2 недели</span></div>
+<div class="level-desc-row">Auth, Row Level Security, Storage, Realtime подписки</div>
+<div class="level-row"><span class="level-badge lb-p">Профи</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:70%"></div></div><span class="level-time">1–2 месяца</span></div>
+<div class="level-desc-row">Edge Functions, pgvector для AI, продакшн оптимизация</div>
+</div>
+
+<div class="price-block">
+<div class="price-block-title">💰 Тарифы</div>
+<div class="price-row">
+<span class="price-plan">Бесплатно</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">2 проекта, 500MB БД, 1GB Storage</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Pro</span>
+<span class="price-amount">$25/мес</span>
+<span class="price-desc">8GB БД, 100GB Storage, бэкапы</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Team</span>
+<span class="price-amount">$599/мес</span>
+<span class="price-desc">Корпоративный уровень, SLA</span>
+</div>
+</div><div class="card-footer"><span class="card-use">Лучший для: бэкенда MVP</span><a class="card-link" href="https://supabase.com" target="_blank">supabase.com →</a></div>
+</div>
+<div class="card c-purple">
+<div class="card-header"><div class="card-left"><div class="card-icon">🐳</div><div><div class="card-name">Fly.io</div><div class="card-company">Fly.io</div></div></div><div class="card-badges"><span class="badge badge-free">Бесплатно</span></div></div>
+<p class="card-desc">Хостинг Docker-контейнеров по всему миру. Бесплатно: 3 VM, 3GB storage, PostgreSQL. Деплой любого Docker-образа. Близко к пользователю — запускает контейнер в ближайшем к пользователю датацентре. Идеален для глобальных приложений.</p>
+<div class="card-tags"><span class="tag">Docker</span><span class="tag">Глобально</span><span class="tag">3 VM бесплатно</span><span class="tag">flyctl</span></div>
+<div class="levels-block">
+<div class="levels-title">Уровни освоения</div>
+<div class="level-row"><span class="level-badge lb-b">Начальный</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:25%"></div></div><span class="level-time">2–3 дня</span></div>
+<div class="level-desc-row">Установить flyctl, fly launch, fly deploy</div>
+<div class="level-row"><span class="level-badge lb-m">Средний</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:50%"></div></div><span class="level-time">1–2 недели</span></div>
+<div class="level-desc-row">Масштабирование, секреты, PostgreSQL, кастомный домен</div>
+<div class="level-row"><span class="level-badge lb-p">Профи</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:75%"></div></div><span class="level-time">1–2 месяца</span></div>
+<div class="level-desc-row">Мультирегиональный деплой, Machines API, мониторинг</div>
+</div>
+
+<div class="price-block">
+<div class="price-block-title">💰 Тарифы</div>
+<div class="price-row">
+<span class="price-plan">Бесплатно</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">3 маленьких VM, 3GB Storage, PostgreSQL</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Pay-as-you-go</span>
+<span class="price-amount">от $1.94/мес</span>
+<span class="price-desc">За каждый VM отдельно, по использованию</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Scale</span>
+<span class="price-amount">по нагрузке</span>
+<span class="price-desc">Автомасштабирование, платишь за ресурсы</span>
+</div>
+</div><div class="card-footer"><span class="card-use">Лучший для: Docker-проектов</span><a class="card-link" href="https://fly.io" target="_blank">fly.io →</a></div>
+</div>
+</div>
+<div class="section-title" data-cat="vps" style="font-size:10px; letter-spacing:0.1em; margin-bottom:16px;">🇷🇺 Российские — оплата картой РФ</div>
+<div class="cards-grid" data-cat="vps">
+<div class="card c-blue">
+<div class="card-header"><div class="card-left"><div class="card-icon">⏱️</div><div><div class="card-name">Timeweb Cloud</div><div class="card-company">Timeweb (СПб)</div></div></div><div class="card-badges"><span class="badge badge-partial">От 399 ₽/мес</span></div></div>
+<p class="card-desc">Один из лидеров российского рынка. NVMe диски, KVM виртуализация, почасовая оплата. Датацентры в России, Амстердаме, Франкфурте. Удобная панель, масштабирование в пару кликов, бесплатный перенос данных. Поддержка 24/7. Хорошо подходит для OpenClaw + n8n стека.</p>
+<div class="card-tags"><span class="tag">NVMe KVM</span><span class="tag">Почасовая оплата</span><span class="tag">Москва + Европа</span><span class="tag">24/7 поддержка</span></div>
+<div class="levels-block">
+<div class="levels-title">Рекомендуемые тарифы</div>
+<div class="level-row"><span class="level-badge lb-b">Cloud-1</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:25%"></div></div><span class="level-time">399 ₽/мес</span></div>
+<div class="level-desc-row">1 vCPU, 1GB RAM, 10GB NVMe — для лёгкого OpenClaw</div>
+<div class="level-row"><span class="level-badge lb-m">Cloud-2</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:50%"></div></div><span class="level-time">699 ₽/мес</span></div>
+<div class="level-desc-row">2 vCPU, 2GB RAM — комфортная работа агента</div>
+<div class="level-row"><span class="level-badge lb-p">Cloud-4</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:75%"></div></div><span class="level-time">1 299 ₽/мес</span></div>
+<div class="level-desc-row">4 vCPU, 8GB RAM — несколько агентов + базы данных</div>
+</div>
+<div class="card-footer"><span class="card-use">Лучший выбор в РФ</span><a class="card-link" href="https://timeweb.cloud" target="_blank">timeweb.cloud →</a></div>
+</div>
+<div class="card c-green">
+<div class="card-header"><div class="card-left"><div class="card-icon">🥬</div><div><div class="card-name">Beget</div><div class="card-company">Beget (СПб)</div></div></div><div class="card-badges"><span class="badge badge-partial">От 210 ₽/мес</span></div></div>
+<p class="card-desc">Самые доступные VPS в России. NVMe на KVM, SLA 99.98%. Датацентры в России, Казахстане и Риге. Автобэкапы, S3-хранилище, маркетплейс с готовыми приложениями. Оплата картой, СБП, ЮМани. Идеально для старта на минимальном бюджете.</p>
+<div class="card-tags"><span class="tag">Самый дешёвый</span><span class="tag">SLA 99.98%</span><span class="tag">Автобэкапы</span><span class="tag">СБП оплата</span></div>
+<div class="levels-block">
+<div class="levels-title">Рекомендуемые тарифы</div>
+<div class="level-row"><span class="level-badge lb-b">VPS-1</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:20%"></div></div><span class="level-time">210 ₽/мес</span></div>
+<div class="level-desc-row">1 vCPU, 512MB RAM — только для теста</div>
+<div class="level-row"><span class="level-badge lb-m">VPS-2</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:45%"></div></div><span class="level-time">420 ₽/мес</span></div>
+<div class="level-desc-row">1 vCPU, 1GB RAM, 15GB NVMe — лёгкий OpenClaw</div>
+<div class="level-row"><span class="level-badge lb-p">VPS-4</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:70%"></div></div><span class="level-time">840 ₽/мес</span></div>
+<div class="level-desc-row">2 vCPU, 4GB RAM — полноценный агент</div>
+</div>
+<div class="card-footer"><span class="card-use">Лучший для: минимального бюджета</span><a class="card-link" href="https://beget.com/ru/vps" target="_blank">beget.com →</a></div>
+</div>
+<div class="card c-teal">
+<div class="card-header"><div class="card-left"><div class="card-icon">🔵</div><div><div class="card-name">FirstVDS</div><div class="card-company">FirstVDS (Москва)</div></div></div><div class="card-badges"><span class="badge badge-partial">От 219 ₽/мес</span></div></div>
+<p class="card-desc">Популярный российский провайдер, лауреат «Хостер года» 2021, 2022, 2024. Линейки Старт, NVMe, Атлант, Storage. Датацентры в Москве, Амстердаме и Алматы. Порт до 1 Гбит/с, 1 IPv4 включён. Безлимитный трафик на Storage-тарифах — удобно для бэкапов.</p>
+<div class="card-tags"><span class="tag">Хостер года</span><span class="tag">1 Гбит/с</span><span class="tag">Москва + Амстердам</span><span class="tag">Storage тарифы</span></div>
+<div class="levels-block">
+<div class="levels-title">Рекомендуемые тарифы</div>
+<div class="level-row"><span class="level-badge lb-b">Старт-1</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:20%"></div></div><span class="level-time">219 ₽/мес</span></div>
+<div class="level-desc-row">1 vCPU, 1GB RAM, 20GB SSD — минималка для OpenClaw</div>
+<div class="level-row"><span class="level-badge lb-m">NVMe-2</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:45%"></div></div><span class="level-time">549 ₽/мес</span></div>
+<div class="level-desc-row">2 vCPU, 2GB RAM, 40GB NVMe — быстрый и комфортный</div>
+<div class="level-row"><span class="level-badge lb-p">Атлант-4</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:70%"></div></div><span class="level-time">1 099 ₽/мес</span></div>
+<div class="level-desc-row">4 vCPU, 8GB RAM — несколько агентов одновременно</div>
+</div>
+<div class="card-footer"><span class="card-use">Лучший для: надёжности</span><a class="card-link" href="https://firstvds.ru" target="_blank">firstvds.ru →</a></div>
+</div>
+<div class="card c-orange">
+<div class="card-header"><div class="card-left"><div class="card-icon">🛸</div><div><div class="card-name">RUVDS</div><div class="card-company">RUVDS (Москва)</div></div></div><div class="card-badges"><span class="badge badge-partial">От 130 ₽/мес</span></div></div>
+<p class="card-desc">Самые дешёвые VPS в России — от 130 ₽/мес. Безлимитный трафик 100 Мбит/с на всех тарифах. Датацентры: Москва, Санкт-Петербург, Казань, Екатеринбург, Алматы, Астана, Лондон, Цюрих, Франкфурт и другие. Поддержка Windows Server включена в цену. Даже запустили спутник с серверами 🛸</p>
+<div class="card-tags"><span class="tag">От 130 ₽</span><span class="tag">Безлимит трафик</span><span class="tag">Windows включён</span><span class="tag">15+ городов</span></div>
+<div class="levels-block">
+<div class="levels-title">Рекомендуемые тарифы</div>
+<div class="level-row"><span class="level-badge lb-b">Micro</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:15%"></div></div><span class="level-time">130 ₽/мес</span></div>
+<div class="level-desc-row">1 vCPU, 512MB RAM — только для теста и лёгких ботов</div>
+<div class="level-row"><span class="level-badge lb-m">Start</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:40%"></div></div><span class="level-time">~400 ₽/мес</span></div>
+<div class="level-desc-row">1 vCPU, 2GB RAM — минимум для OpenClaw</div>
+<div class="level-row"><span class="level-badge lb-p">Medium</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:65%"></div></div><span class="level-time">~800 ₽/мес</span></div>
+<div class="level-desc-row">2 vCPU, 4GB RAM — комфортная работа агента</div>
+</div>
+<div class="card-footer"><span class="card-use">Лучший для: Windows и низкой цены</span><a class="card-link" href="https://ruvds.com" target="_blank">ruvds.com →</a></div>
+</div>
+<div class="card c-purple">
+<div class="card-header"><div class="card-left"><div class="card-icon">🌐</div><div><div class="card-name">VDSina</div><div class="card-company">VDSina (Москва)</div></div></div><div class="card-badges"><span class="badge badge-partial">От 600 ₽/мес</span></div></div>
+<p class="card-desc">Надёжный российский VPS с датацентрами в Москве и Нидерландах. Процессор до 3.2 ГГц, KVM виртуализация, гарантированные ресурсы. Хорошо подходит под высоконагруженные задачи. Удобная панель управления. Именно тот провайдер — VPS от 600 ₽ о котором шла речь.</p>
+<div class="card-tags"><span class="tag">До 3.2 ГГц</span><span class="tag">Москва + Нидерланды</span><span class="tag">KVM</span><span class="tag">Гарантированные ресурсы</span></div>
+<div class="levels-block">
+<div class="levels-title">Рекомендуемые тарифы</div>
+<div class="level-row"><span class="level-badge lb-b">VPS-1</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:30%"></div></div><span class="level-time">600 ₽/мес</span></div>
+<div class="level-desc-row">1 vCPU, 1GB RAM — старт для OpenClaw</div>
+<div class="level-row"><span class="level-badge lb-m">VPS-2</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:55%"></div></div><span class="level-time">1 100 ₽/мес</span></div>
+<div class="level-desc-row">2 vCPU, 4GB RAM — комфортная работа агентов</div>
+<div class="level-row"><span class="level-badge lb-p">VPS-4</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:80%"></div></div><span class="level-time">2 000 ₽/мес</span></div>
+<div class="level-desc-row">4 vCPU, 8GB RAM — продакшн, несколько сервисов</div>
+</div>
+<div class="card-footer"><span class="card-use">Лучший для: высоких нагрузок</span><a class="card-link" href="https://vdsina.ru" target="_blank">vdsina.ru →</a></div>
+</div>
+<div class="card c-red">
+<div class="card-header"><div class="card-left"><div class="card-icon">🌍</div><div><div class="card-name">Fornex</div><div class="card-company">Fornex (ЕС, оплата из РФ)</div></div></div><div class="card-badges"><span class="badge badge-partial">От 600 ₽/мес</span></div></div>
+<p class="card-desc">Европейские сервера с оплатой из России — идеальный вариант если нужны IP вне РФ. Локации: Германия, Нидерланды, Швейцария, США, Испания. Оплата картами РФ и криптовалютой. KVM на NVMe, Anti-DDoS, поддержка 24/7. Хорош для проектов требующих европейский IP.</p>
+<div class="card-tags"><span class="tag">Европейский IP</span><span class="tag">Карты РФ</span><span class="tag">Крипта</span><span class="tag">Anti-DDoS</span></div>
+<div class="levels-block">
+<div class="levels-title">Рекомендуемые тарифы</div>
+<div class="level-row"><span class="level-badge lb-b">Старт</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:25%"></div></div><span class="level-time">~600 ₽/мес</span></div>
+<div class="level-desc-row">1 vCPU, 512MB–1GB RAM — минималка, Германия/Нидерланды</div>
+<div class="level-row"><span class="level-badge lb-m">Средний</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:50%"></div></div><span class="level-time">~1 200 ₽/мес</span></div>
+<div class="level-desc-row">2 vCPU, 4GB RAM NVMe — комфортный агент в Европе</div>
+<div class="level-row"><span class="level-badge lb-p">Мощный</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:75%"></div></div><span class="level-time">~2 500 ₽/мес</span></div>
+<div class="level-desc-row">6 vCPU, 16GB RAM — несколько агентов, продакшн</div>
+</div>
+<div class="card-footer"><span class="card-use">Лучший для: европейского IP из РФ</span><a class="card-link" href="https://fornex.com" target="_blank">fornex.com →</a></div>
+</div>
+</div>
+<div class="section-title" data-cat="openclaw">🦾 Open Claw — агенты с открытым кодом</div>
+<div class="cards-grid" data-cat="openclaw">
+<div class="card c-purple" style="--card-accent:#a855f7; --card-accent-bg:rgba(168,85,247,0.12); --card-accent-border:rgba(168,85,247,0.3);">
+<div class="card-header"><div class="card-left"><div class="card-icon">🦾</div><div><div class="card-name">OpenClaw</div><div class="card-company">Peter Steinberger / Open-source</div></div></div><div class="card-badges"><span class="badge badge-partial">Частично</span></div></div>
+<p class="card-desc">AI-ассистент, который живёт на твоём сервере и реально что-то делает. Чистит inbox, отправляет письма, управляет календарём, следит за рейсами — всё через WhatsApp, Telegram или Discord. Работает 24/7, помнит всё, сам себя улучшает через разговор. Open-source — контекст и навыки хранятся у тебя.</p>
+<div class="card-tags"><span class="tag">WhatsApp / Telegram</span><span class="tag">Память 24/7</span><span class="tag">Self-hosted</span><span class="tag">Open-source</span><span class="tag">Skills</span></div>
+<div class="levels-block">
+<div class="levels-title">Установка (нужен свой сервер)</div>
+<div class="level-row"><span class="level-badge lb-b">Установка</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:30%"></div></div><span class="level-time">2–4 часа</span></div>
+<div class="level-desc-row">VPS / Mac mini → Node.js → git clone → npm install → настроить .env с API ключами → подключить Telegram/WhatsApp</div>
+<div class="level-row"><span class="level-badge lb-m">Средний</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:50%"></div></div><span class="level-time">1–2 недели</span></div>
+<div class="level-desc-row">Установка Skills (Gmail, Calendar, браузер), настройка памяти, Claude API</div>
+<div class="level-row"><span class="level-badge lb-p">Профи</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:80%"></div></div><span class="level-time">1–2 месяца</span></div>
+<div class="level-desc-row">Несколько инстансов, кастомные Skills, интеграция с рабочими процессами</div>
+</div>
+
+<div class="price-block">
+<div class="price-block-title">💰 Тарифы</div>
+<div class="price-row">
+<span class="price-plan">Self-hosted</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">Open-source — само ПО бесплатно</span>
+</div>
+<div class="price-row">
+<span class="price-plan">API Claude</span>
+<span class="price-amount">от $3/1M токенов</span>
+<span class="price-desc">Основные расходы — API ключ</span>
+</div>
+<div class="price-row">
+<span class="price-plan">VPS</span>
+<span class="price-amount">от €4.5/мес</span>
+<span class="price-desc">Сервер для работы 24/7 (Hetzner и др.)</span>
+</div>
+</div><div class="card-footer"><span class="card-use">Лучший для: личного AI 24/7</span><a class="card-link" href="https://openclaw.ai" target="_blank">openclaw.ai →</a></div>
+</div>
+<div class="card c-purple">
+<div class="card-header"><div class="card-left"><div class="card-icon">🪄</div><div><div class="card-name">Cline</div><div class="card-company">Саул Маркс / Open-source</div></div></div><div class="card-badges"><span class="badge badge-free">Бесплатно</span></div></div>
+<p class="card-desc">Самый мощный open-source AI-агент для VS Code. Устанавливается как расширение. Сам читает файлы, пишет код, запускает команды в терминале, открывает браузер. Подключаешь свой API ключ — Claude, GPT, Gemini, DeepSeek, Ollama. Полный контроль и прозрачность.</p>
+<div class="card-tags"><span class="tag">VS Code</span><span class="tag">Любой API</span><span class="tag">Терминал</span><span class="tag">Браузер</span></div>
+<div class="levels-block">
+<div class="levels-title">Установка и освоение</div>
+<div class="level-row"><span class="level-badge lb-b">Установка</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:15%"></div></div><span class="level-time">30 минут</span></div>
+<div class="level-desc-row">VS Code Extensions → найти "Cline" → Install → вставить API ключ</div>
+<div class="level-row"><span class="level-badge lb-m">Средний</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:45%"></div></div><span class="level-time">1–2 недели</span></div>
+<div class="level-desc-row">Контекстные файлы, настройка моделей, правила проекта</div>
+<div class="level-row"><span class="level-badge lb-p">Профи</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:75%"></div></div><span class="level-time">1–2 месяца</span></div>
+<div class="level-desc-row">MCP серверы, кастомные инструменты, сложные агентные задачи</div>
+</div>
+
+<div class="price-block">
+<div class="price-block-title">💰 Тарифы</div>
+<div class="price-row">
+<span class="price-plan">Расширение</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">Само расширение VS Code бесплатно</span>
+</div>
+<div class="price-row">
+<span class="price-plan">API ключи</span>
+<span class="price-amount">по тарифу модели</span>
+<span class="price-desc">Платишь за Claude/GPT/Gemini токены</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Ollama</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">Локальные модели — полный ноль</span>
+</div>
+</div><div class="card-footer"><span class="card-use">Лучший для: агентов в VS Code</span><a class="card-link" href="https://github.com/cline/cline" target="_blank">github.com/cline →</a></div>
+</div>
+<div class="card c-blue">
+<div class="card-header"><div class="card-left"><div class="card-icon">🤝</div><div><div class="card-name">OpenHands</div><div class="card-company">All Hands AI</div></div></div><div class="card-badges"><span class="badge badge-free">Бесплатно</span></div></div>
+<p class="card-desc">Бывший OpenDevin. Полноценный AI-разработчик в Docker-контейнере. Сам ставит зависимости, пишет тесты, запускает проект, открывает браузер. Работает локально или в облаке. Подключается к любой LLM. Решает задачи автономно от начала до конца.</p>
+<div class="card-tags"><span class="tag">Docker</span><span class="tag">Автономный</span><span class="tag">Тесты</span><span class="tag">Open-source</span></div>
+<div class="levels-block">
+<div class="levels-title">Установка и освоение</div>
+<div class="level-row"><span class="level-badge lb-b">Установка</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:30%"></div></div><span class="level-time">1–2 дня</span></div>
+<div class="level-desc-row">Docker pull → docker run → открыть localhost:3000 → вставить API ключ</div>
+<div class="level-row"><span class="level-badge lb-m">Средний</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:55%"></div></div><span class="level-time">2–3 недели</span></div>
+<div class="level-desc-row">Настройка моделей, подключение репозитория, автономные задачи</div>
+<div class="level-row"><span class="level-badge lb-p">Профи</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:80%"></div></div><span class="level-time">2–3 месяца</span></div>
+<div class="level-desc-row">Продакшн деплой, кастомные агенты, интеграция в CI/CD</div>
+</div>
+
+<div class="price-block">
+<div class="price-block-title">💰 Тарифы</div>
+<div class="price-row">
+<span class="price-plan">Self-hosted</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">Docker — само ПО бесплатно</span>
+</div>
+<div class="price-row">
+<span class="price-plan">API ключи</span>
+<span class="price-amount">по тарифу модели</span>
+<span class="price-desc">Платишь за использованные токены</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Cloud (планируется)</span>
+<span class="price-amount">TBD</span>
+<span class="price-desc">Облачная версия в разработке</span>
+</div>
+</div><div class="card-footer"><span class="card-use">Лучший для: автономной разработки</span><a class="card-link" href="https://github.com/All-Hands-AI/OpenHands" target="_blank">github.com/OpenHands →</a></div>
+</div>
+<div class="card c-green">
+<div class="card-header"><div class="card-left"><div class="card-icon">🔧</div><div><div class="card-name">Roo Code</div><div class="card-company">Roo Veterinary / Open-source</div></div></div><div class="card-badges"><span class="badge badge-free">Бесплатно</span></div></div>
+<p class="card-desc">Форк Cline с дополнительными режимами — Architect, Ask, Code, Debug. Каждый режим оптимизирован под свою задачу. Поддерживает больше моделей и имеет расширенные настройки. Очень активно развивается сообществом. Отличная альтернатива Cline.</p>
+<div class="card-tags"><span class="tag">VS Code</span><span class="tag">4 режима</span><span class="tag">Форк Cline</span><span class="tag">Сообщество</span></div>
+<div class="levels-block">
+<div class="levels-title">Установка и освоение</div>
+<div class="level-row"><span class="level-badge lb-b">Установка</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:15%"></div></div><span class="level-time">30 минут</span></div>
+<div class="level-desc-row">VS Code Extensions → "Roo Code" → Install → API ключ</div>
+<div class="level-row"><span class="level-badge lb-m">Средний</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:40%"></div></div><span class="level-time">1–2 недели</span></div>
+<div class="level-desc-row">Разные режимы под разные задачи, настройка контекста</div>
+<div class="level-row"><span class="level-badge lb-p">Профи</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:70%"></div></div><span class="level-time">1–2 месяца</span></div>
+<div class="level-desc-row">Кастомные режимы, MCP, оркестрация агентов</div>
+</div>
+
+<div class="price-block">
+<div class="price-block-title">💰 Тарифы</div>
+<div class="price-row">
+<span class="price-plan">Расширение</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">VS Code расширение — бесплатно</span>
+</div>
+<div class="price-row">
+<span class="price-plan">API ключи</span>
+<span class="price-amount">по тарифу модели</span>
+<span class="price-desc">Платишь за Claude/GPT/Gemini API</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Ollama</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">Локальные модели бесплатно</span>
+</div>
+</div><div class="card-footer"><span class="card-use">Лучший для: гибкости</span><a class="card-link" href="https://github.com/RooVetGit/Roo-Code" target="_blank">github.com/Roo-Code →</a></div>
+</div>
+<div class="card c-orange">
+<div class="card-header"><div class="card-left"><div class="card-icon">🤖</div><div><div class="card-name">AutoGPT</div><div class="card-company">Significant Gravitas</div></div></div><div class="card-badges"><span class="badge badge-free">Бесплатно</span></div></div>
+<p class="card-desc">Пионер автономных AI-агентов. Ставишь цель — агент сам разбивает на подзадачи и выполняет. Работает через браузер (AutoGPT.net) или локально. Может искать в интернете, писать файлы, запускать код. Большое сообщество и marketplace агентов.</p>
+<div class="card-tags"><span class="tag">Автономный</span><span class="tag">Веб-поиск</span><span class="tag">Marketplace</span><span class="tag">Пионер</span></div>
+<div class="levels-block">
+<div class="levels-title">Установка и освоение</div>
+<div class="level-row"><span class="level-badge lb-b">Начальный</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:10%"></div></div><span class="level-time">1 день</span></div>
+<div class="level-desc-row">autogpt.net — веб-версия без установки, сразу задать цель</div>
+<div class="level-row"><span class="level-badge lb-m">Средний</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:40%"></div></div><span class="level-time">1–2 недели</span></div>
+<div class="level-desc-row">Локальная установка, подключение инструментов, настройка агентов</div>
+<div class="level-row"><span class="level-badge lb-p">Профи</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:70%"></div></div><span class="level-time">1–3 месяца</span></div>
+<div class="level-desc-row">Кастомные агенты, интеграции, оркестрация сложных задач</div>
+</div>
+
+<div class="price-block">
+<div class="price-block-title">💰 Тарифы</div>
+<div class="price-row">
+<span class="price-plan">Веб</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">autogpt.net — базовый доступ бесплатно</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Self-hosted</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">Открытый код — своя установка</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Cloud Pro</span>
+<span class="price-amount">$29/мес</span>
+<span class="price-desc">Облачные агенты без ограничений</span>
+</div>
+</div><div class="card-footer"><span class="card-use">Лучший для: автономных задач</span><a class="card-link" href="https://autogpt.net" target="_blank">autogpt.net →</a></div>
+</div>
+<div class="card c-pink">
+<div class="card-header"><div class="card-left"><div class="card-icon">🧑‍🤝‍🧑</div><div><div class="card-name">CrewAI</div><div class="card-company">CrewAI</div></div></div><div class="card-badges"><span class="badge badge-free">Бесплатно</span></div></div>
+<p class="card-desc">Фреймворк для создания команд AI-агентов на Python. Несколько агентов работают вместе — Researcher, Writer, Coder. Каждый выполняет свою роль. Простой синтаксис. Активно используется в продакшн-системах. Огромная экосистема готовых агентов.</p>
+<div class="card-tags"><span class="tag">Python</span><span class="tag">Мультиагент</span><span class="tag">Роли</span><span class="tag">Продакшн</span></div>
+<div class="levels-block">
+<div class="levels-title">Установка и освоение</div>
+<div class="level-row"><span class="level-badge lb-b">Установка</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:25%"></div></div><span class="level-time">1–2 дня</span></div>
+<div class="level-desc-row"><code>pip install crewai</code> → первая команда агентов</div>
+<div class="level-row"><span class="level-badge lb-m">Средний</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:55%"></div></div><span class="level-time">2–4 недели</span></div>
+<div class="level-desc-row">Кастомные агенты и задачи, инструменты, управление процессом</div>
+<div class="level-row"><span class="level-badge lb-p">Профи</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:85%"></div></div><span class="level-time">2–4 месяца</span></div>
+<div class="level-desc-row">Сложные пайплайны, продакшн API, Human-in-the-Loop</div>
+</div>
+
+<div class="price-block">
+<div class="price-block-title">💰 Тарифы</div>
+<div class="price-row">
+<span class="price-plan">Open-source</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">pip install crewai — полностью бесплатно</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Enterprise</span>
+<span class="price-amount">по запросу</span>
+<span class="price-desc">Поддержка, SLA, развёртывание</span>
+</div>
+<div class="price-row">
+<span class="price-plan">API ключи</span>
+<span class="price-amount">по тарифу модели</span>
+<span class="price-desc">Платишь за LLM токены</span>
+</div>
+</div><div class="card-footer"><span class="card-use">Лучший для: мультиагентов</span><a class="card-link" href="https://crewai.com" target="_blank">crewai.com →</a></div>
+</div>
+<div class="card c-teal">
+<div class="card-header"><div class="card-left"><div class="card-icon">🔗</div><div><div class="card-name">LangChain / LangGraph</div><div class="card-company">LangChain</div></div></div><div class="card-badges"><span class="badge badge-free">Бесплатно</span></div></div>
+<p class="card-desc">Стандарт для построения LLM-приложений. LangChain — цепочки вызовов AI. LangGraph — граф агентов со сложной логикой. Огромная экосистема инструментов. Работает с любой моделью. Основа большинства AI-стартапов в 2024–2026.</p>
+<div class="card-tags"><span class="tag">Python/JS</span><span class="tag">RAG</span><span class="tag">Агенты</span><span class="tag">Экосистема</span></div>
+<div class="levels-block">
+<div class="levels-title">Установка и освоение</div>
+<div class="level-row"><span class="level-badge lb-b">Установка</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:20%"></div></div><span class="level-time">1–2 дня</span></div>
+<div class="level-desc-row"><code>pip install langchain</code> → первая цепочка с LLM</div>
+<div class="level-row"><span class="level-badge lb-m">Средний</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:55%"></div></div><span class="level-time">3–6 недель</span></div>
+<div class="level-desc-row">RAG системы, память агентов, инструменты, LangGraph</div>
+<div class="level-row"><span class="level-badge lb-p">Профи</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:85%"></div></div><span class="level-time">3–6 месяцев</span></div>
+<div class="level-desc-row">Продакшн RAG, LangSmith мониторинг, кастомные агенты</div>
+</div>
+
+<div class="price-block">
+<div class="price-block-title">💰 Тарифы</div>
+<div class="price-row">
+<span class="price-plan">Open-source</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">Фреймворк полностью бесплатный</span>
+</div>
+<div class="price-row">
+<span class="price-plan">LangSmith</span>
+<span class="price-amount">от $39/мес</span>
+<span class="price-desc">Мониторинг и отладка агентов</span>
+</div>
+<div class="price-row">
+<span class="price-plan">API ключи</span>
+<span class="price-amount">по тарифу модели</span>
+<span class="price-desc">Платишь за LLM токены</span>
+</div>
+</div><div class="card-footer"><span class="card-use">Лучший для: RAG и цепочек</span><a class="card-link" href="https://langchain.com" target="_blank">langchain.com →</a></div>
+</div>
+<div class="card c-red">
+<div class="card-header"><div class="card-left"><div class="card-icon">🌊</div><div><div class="card-name">Flowise</div><div class="card-company">FlowiseAI</div></div></div><div class="card-badges"><span class="badge badge-free">Бесплатно</span></div></div>
+<p class="card-desc">Визуальный конструктор LangChain-агентов без кода. Соединяешь блоки мышкой — строишь RAG, чат-ботов, агентов. Аналог Make.com но для AI-пайплайнов. Разворачивается локально или на Railway/Render. Идеален для не-разработчиков.</p>
+<div class="card-tags"><span class="tag">Без кода</span><span class="tag">LangChain визуально</span><span class="tag">RAG</span><span class="tag">Self-hosted</span></div>
+<div class="levels-block">
+<div class="levels-title">Установка и освоение</div>
+<div class="level-row"><span class="level-badge lb-b">Установка</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:20%"></div></div><span class="level-time">1 день</span></div>
+<div class="level-desc-row"><code>npx flowise start</code> → открыть localhost:3000</div>
+<div class="level-row"><span class="level-badge lb-m">Средний</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:40%"></div></div><span class="level-time">1–2 недели</span></div>
+<div class="level-desc-row">RAG чат-боты, агенты с инструментами, подключение баз данных</div>
+<div class="level-row"><span class="level-badge lb-p">Профи</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:70%"></div></div><span class="level-time">1–2 месяца</span></div>
+<div class="level-desc-row">Продакшн деплой, API интеграции, кастомные компоненты</div>
+</div>
+
+<div class="price-block">
+<div class="price-block-title">💰 Тарифы</div>
+<div class="price-row">
+<span class="price-plan">Self-hosted</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">npx flowise start — бесплатно</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Cloud Starter</span>
+<span class="price-amount">$35/мес</span>
+<span class="price-desc">Облачный хостинг, 5 000 предсказаний</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Cloud Pro</span>
+<span class="price-amount">$99/мес</span>
+<span class="price-desc">Неограниченно, приоритет поддержки</span>
+</div>
+</div><div class="card-footer"><span class="card-use">Лучший для: AI без кода</span><a class="card-link" href="https://flowiseai.com" target="_blank">flowiseai.com →</a></div>
+</div>
+<div class="card c-purple">
+<div class="card-header"><div class="card-left"><div class="card-icon">🧩</div><div><div class="card-name">Dify</div><div class="card-company">LangGenius</div></div></div><div class="card-badges"><span class="badge badge-partial">Частично</span></div></div>
+<p class="card-desc">Платформа для создания AI-приложений и агентов. Визуальный Workflow редактор, RAG, чат-боты, агенты. Self-hosted бесплатно, облако платно. Уже использует 100к+ команд. Поддерживает Claude, GPT, Llama, Gemini. Хорош для корпоративного внедрения AI.</p>
+<div class="card-tags"><span class="tag">Workflow</span><span class="tag">RAG</span><span class="tag">Self-hosted</span><span class="tag">Enterprise</span></div>
+<div class="levels-block">
+<div class="levels-title">Установка и освоение</div>
+<div class="level-row"><span class="level-badge lb-b">Установка</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:25%"></div></div><span class="level-time">1–2 дня</span></div>
+<div class="level-desc-row">Docker Compose → docker-compose up → localhost:80</div>
+<div class="level-row"><span class="level-badge lb-m">Средний</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:50%"></div></div><span class="level-time">2–4 недели</span></div>
+<div class="level-desc-row">Workflow пайплайны, базы знаний, агенты с инструментами</div>
+<div class="level-row"><span class="level-badge lb-p">Профи</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:80%"></div></div><span class="level-time">2–3 месяца</span></div>
+<div class="level-desc-row">API деплой, многопользовательская среда, продакшн</div>
+</div>
+
+<div class="price-block">
+<div class="price-block-title">💰 Тарифы</div>
+<div class="price-row">
+<span class="price-plan">Self-hosted</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">Docker — полностью бесплатно</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Cloud Sandbox</span>
+<span class="price-amount">0 ₽</span>
+<span class="price-desc">200 сообщений, 1 агент бесплатно</span>
+</div>
+<div class="price-row">
+<span class="price-plan">Cloud Pro</span>
+<span class="price-amount">$59/мес</span>
+<span class="price-desc">Полный функционал, 5 000 сообщений/мес</span>
+</div>
+</div><div class="card-footer"><span class="card-use">Лучший для: корпоративного AI</span><a class="card-link" href="https://dify.ai" target="_blank">dify.ai →</a></div>
+</div>
+</div>
+<!-- VPS СЕРВЕРЫ -->
+<div class="section-title" data-cat="vps">🖥️ VPS серверы для OpenClaw и агентов</div>
+<div class="section-title" data-cat="vps" style="font-size:10px; margin-top:-10px; margin-bottom:16px; letter-spacing:0.1em;">🌍 Зарубежные</div>
+<div class="cards-grid" data-cat="vps">
+<div class="card c-blue">
+<div class="card-header"><div class="card-left"><div class="card-icon">🇩🇪</div><div><div class="card-name">Hetzner Cloud</div><div class="card-company">Hetzner (Германия)</div></div></div><div class="card-badges"><span class="badge badge-partial">От €4.5/мес</span></div></div>
+<p class="card-desc">Лучшее соотношение цена/производительность в Европе. CX22: 2 vCPU, 4GB RAM, 40GB SSD — €4.5/мес. Этого хватает для OpenClaw + n8n + база данных одновременно. Датацентры в Германии, Финляндии, США. Простая панель управления. Любимый выбор разработчиков.</p>
+<div class="card-tags"><span class="tag">Лучшая цена</span><span class="tag">Европа</span><span class="tag">4GB RAM от €4.5</span><span class="tag">Snapshots</span></div>
+<div class="levels-block">
+<div class="levels-title">Рекомендуемые тарифы</div>
+<div class="level-row"><span class="level-badge lb-b">CX22</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:30%"></div></div><span class="level-time">€4.5 / мес</span></div>
+<div class="level-desc-row">2 vCPU, 4GB RAM, 40GB SSD — идеально для старта OpenClaw</div>
+<div class="level-row"><span class="level-badge lb-m">CX32</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:55%"></div></div><span class="level-time">€8.5 / мес</span></div>
+<div class="level-desc-row">4 vCPU, 8GB RAM — для нескольких агентов и n8n</div>
+<div class="level-row"><span class="level-badge lb-p">CX42</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:80%"></div></div><span class="level-time">€17 / мес</span></div>
+<div class="level-desc-row">8 vCPU, 16GB RAM — продакшн, много агентов и воркфлоу</div>
+</div>
+<div class="card-footer"><span class="card-use">Лучший выбор для OpenClaw</span><a class="card-link" href="https://hetzner.com/cloud" target="_blank">hetzner.com →</a></div>
+</div>
+<div class="card c-teal">
+<div class="card-header"><div class="card-left"><div class="card-icon">🌊</div><div><div class="card-name">DigitalOcean</div><div class="card-company">DigitalOcean (США)</div></div></div><div class="card-badges"><span class="badge badge-partial">От $6/мес</span></div></div>
+<p class="card-desc">Самая простая панель для новичков. Droplets (VPS) разворачиваются за 55 секунд. Готовые образы с 1 кликом — Docker, Node.js, n8n уже установлены. $200 бесплатно на 60 дней для новых. Отличная документация. Датацентры в 15 городах мира.</p>
+<div class="card-tags"><span class="tag">Простая панель</span><span class="tag">1-Click Apps</span><span class="tag">$200 кредит</span><span class="tag">15 регионов</span></div>
+<div class="levels-block">
+<div class="levels-title">Рекомендуемые тарифы</div>
+<div class="level-row"><span class="level-badge lb-b">Basic</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:25%"></div></div><span class="level-time">$6 / мес</span></div>
+<div class="level-desc-row">1 vCPU, 1GB RAM, 25GB SSD — минимум для OpenClaw</div>
+<div class="level-row"><span class="level-badge lb-m">Basic</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:50%"></div></div><span class="level-time">$12 / мес</span></div>
+<div class="level-desc-row">2 vCPU, 2GB RAM — комфортная работа агента</div>
+<div class="level-row"><span class="level-badge lb-p">General</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:75%"></div></div><span class="level-time">$24 / мес</span></div>
+<div class="level-desc-row">2 vCPU, 8GB RAM — несколько агентов + база данных</div>
+</div>
+<div class="card-footer"><span class="card-use">Лучший для: новичков</span><a class="card-link" href="https://digitalocean.com" target="_blank">digitalocean.com →</a></div>
+</div>
+<div class="card c-orange">
+<div class="card-header"><div class="card-left"><div class="card-icon">⚡</div><div><div class="card-name">Vultr</div><div class="card-company">Vultr (США)</div></div></div><div class="card-badges"><span class="badge badge-partial">От $2.5/мес</span></div></div>
+<p class="card-desc">Самые дешёвые VPS на рынке. Cloud Compute от $2.5/мес. 32 региона по всему миру включая Сингапур, Сеул, Дели. Почасовая оплата — платишь только за использованное время. Snapshot и автобэкапы. Хорош если важна экономия.</p>
+<div class="card-tags"><span class="tag">От $2.5/мес</span><span class="tag">32 региона</span><span class="tag">Почасовая оплата</span><span class="tag">Snapshots</span></div>
+<div class="levels-block">
+<div class="levels-title">Рекомендуемые тарифы</div>
+<div class="level-row"><span class="level-badge lb-b">Cloud</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:20%"></div></div><span class="level-time">$2.5 / мес</span></div>
+<div class="level-desc-row">1 vCPU, 512MB RAM — только для тестов</div>
+<div class="level-row"><span class="level-badge lb-m">Cloud</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:45%"></div></div><span class="level-time">$6 / мес</span></div>
+<div class="level-desc-row">1 vCPU, 1GB RAM — лёгкий OpenClaw</div>
+<div class="level-row"><span class="level-badge lb-p">Cloud</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:65%"></div></div><span class="level-time">$12 / мес</span></div>
+<div class="level-desc-row">2 vCPU, 4GB RAM — полноценный агент</div>
+</div>
+<div class="card-footer"><span class="card-use">Лучший для: экономии</span><a class="card-link" href="https://vultr.com" target="_blank">vultr.com →</a></div>
+</div>
+<div class="card c-green">
+<div class="card-header"><div class="card-left"><div class="card-icon">🐙</div><div><div class="card-name">Contabo</div><div class="card-company">Contabo (Германия)</div></div></div><div class="card-badges"><span class="badge badge-partial">От €5.99/мес</span></div></div>
+<p class="card-desc">Максимум RAM и диска за минимальные деньги. VPS S: 4 vCPU, 8GB RAM, 100GB SSD — €5.99/мес. Это в 2 раза больше ресурсов чем у конкурентов за ту же цену. Идеален для ресурсоёмких задач — несколько агентов, локальные LLM, базы данных.</p>
+<div class="card-tags"><span class="tag">Максимум ресурсов</span><span class="tag">8GB RAM за €6</span><span class="tag">100GB SSD</span><span class="tag">Германия</span></div>
+<div class="levels-block">
+<div class="levels-title">Рекомендуемые тарифы</div>
+<div class="level-row"><span class="level-badge lb-b">VPS S</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:35%"></div></div><span class="level-time">€5.99 / мес</span></div>
+<div class="level-desc-row">4 vCPU, 8GB RAM, 100GB SSD — лучший старт для OpenClaw</div>
+<div class="level-row"><span class="level-badge lb-m">VPS M</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:60%"></div></div><span class="level-time">€8.99 / мес</span></div>
+<div class="level-desc-row">6 vCPU, 16GB RAM, 200GB SSD — несколько агентов</div>
+<div class="level-row"><span class="level-badge lb-p">VPS L</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:85%"></div></div><span class="level-time">€14.99 / мес</span></div>
+<div class="level-desc-row">8 vCPU, 30GB RAM — локальные Ollama модели</div>
+</div>
+<div class="card-footer"><span class="card-use">Лучший для: максимума RAM</span><a class="card-link" href="https://contabo.com" target="_blank">contabo.com →</a></div>
+</div>
+<div class="card c-red">
+<div class="card-header"><div class="card-left"><div class="card-icon">🇫🇷</div><div><div class="card-name">OVHcloud</div><div class="card-company">OVH (Франция)</div></div></div><div class="card-badges"><span class="badge badge-partial">От €3.59/мес</span></div></div>
+<p class="card-desc">Крупнейший европейский провайдер. VPS Starter: 1 vCPU, 2GB RAM — €3.59/мес. Датацентры в Европе, Канаде, США, Азии. GDPR-совместим. Anti-DDoS защита включена. Хорош для европейских проектов с требованиями к конфиденциальности данных.</p>
+<div class="card-tags"><span class="tag">GDPR</span><span class="tag">Anti-DDoS</span><span class="tag">Европа</span><span class="tag">Крупнейший ЕС</span></div>
+<div class="levels-block">
+<div class="levels-title">Рекомендуемые тарифы</div>
+<div class="level-row"><span class="level-badge lb-b">Starter</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:20%"></div></div><span class="level-time">€3.59 / мес</span></div>
+<div class="level-desc-row">1 vCPU, 2GB RAM, 20GB SSD — тест OpenClaw</div>
+<div class="level-row"><span class="level-badge lb-m">Value</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:45%"></div></div><span class="level-time">€5.39 / мес</span></div>
+<div class="level-desc-row">2 vCPU, 4GB RAM, 80GB SSD — нормальная работа</div>
+<div class="level-row"><span class="level-badge lb-p">Essential</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:70%"></div></div><span class="level-time">€10.79 / мес</span></div>
+<div class="level-desc-row">4 vCPU, 8GB RAM — несколько агентов и сервисов</div>
+</div>
+<div class="card-footer"><span class="card-use">Лучший для: GDPR-проектов</span><a class="card-link" href="https://ovhcloud.com" target="_blank">ovhcloud.com →</a></div>
+</div>
+<div class="card c-green" data-cat="vps-ru">
+<div class="card-header"><div class="card-left"><div class="card-icon">🍓</div><div><div class="card-name">Raspberry Pi</div><div class="card-company">Raspberry Pi Foundation</div></div></div><div class="card-badges"><span class="badge badge-free">~$70 единоразово</span></div></div>
+<p class="card-desc">Самый дешёвый "сервер" — платишь один раз. Pi 5 (8GB RAM) — $80, потребляет 5–10W электричества (~$1-2/мес). Стоит дома, работает 24/7. Идеален для OpenClaw, n8n, Flowise. Cloudflare Tunnel — доступен из интернета без белого IP. Популярен среди гиков.</p>
+<div class="card-tags"><span class="tag">Один раз купил</span><span class="tag">$1-2/мес электричество</span><span class="tag">Дома</span><span class="tag">Cloudflare Tunnel</span></div>
+<div class="levels-block">
+<div class="levels-title">Варианты</div>
+<div class="level-row"><span class="level-badge lb-b">Pi 4 4GB</span><div class="level-bar-wrap"><div class="level-bar bar-b" style="width:40%"></div></div><span class="level-time">~$55</span></div>
+<div class="level-desc-row">Справится с OpenClaw и лёгкими задачами</div>
+<div class="level-row"><span class="level-badge lb-m">Pi 5 8GB</span><div class="level-bar-wrap"><div class="level-bar bar-m" style="width:70%"></div></div><span class="level-time">~$80</span></div>
+<div class="level-desc-row">Оптимальный выбор — несколько агентов, n8n, базы данных</div>
+<div class="level-row"><span class="level-badge lb-p">Pi 5 + NVMe</span><div class="level-bar-wrap"><div class="level-bar bar-p" style="width:90%"></div></div><span class="level-time">~$120</span></div>
+<div class="level-desc-row">С NVMe SSD — быстрый домашний сервер на годы</div>
+</div>
+<div class="card-footer"><span class="card-use">Лучший для: дома</span><a class="card-link" href="https://raspberrypi.com" target="_blank">raspberrypi.com →</a></div>
+</div>
+</div>
+</main>
+<footer>Создано для курса по вайб-кодингу · <span>2026</span> · <span id="last-updated">Актуально на март 2026</span> · <span style="color:var(--text2); font-size:11px;">Запусти <code style="background:rgba(108,99,255,0.15);padding:2px 6px;border-radius:4px;color:var(--accent)">node update_guide.js</code> чтобы найти новые инструменты</span></footer>
+<script>
+  function filter(cat, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('[data-cat]').forEach(s => {
+      s.style.display = (cat === 'all' || s.dataset.cat === cat) ? '' : 'none';
+    });
+  }
+  document.querySelectorAll('.card').forEach((card, i) => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(20px)';
+    setTimeout(() => {
+      card.style.transition = 'opacity 0.4s, transform 0.4s';
+      card.style.opacity = '1';
+      card.style.transform = 'translateY(0)';
+    }, i * 35);
+  });
+</script>
 </body>
 </html>
